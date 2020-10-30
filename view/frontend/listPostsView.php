@@ -11,14 +11,14 @@ require ('requires/header.php');
 {
     ?>
     <div class="post-preview">
-        <a href="#">
+        <a href="index.php?action=showPost&amp;id=<?= $data['id'] ?>">
             <h2 class="post-title">
                 <?= htmlspecialchars($data['title']) ?>
             </h2>
         </a>
         <p>
-            <?= substr($data['content'], 0, 100) ?>...
-            <a href="#">En lire plus</a>
+            <?= htmlspecialchars(substr($data['content'], 0, 100)) ?>...
+            <a href="index.php?action=showPost&amp;id=<?= $data['id'] ?>">En lire plus</a>
         </p>
         <p class="post-meta">Posted by
             <a href="#">Start Bootstrap</a>
