@@ -1,5 +1,10 @@
 {
     "require": {
-        "twig/twig": "^2.0"
+        "twig/twig": "^2.0",
+      "ext-pdo": "*"
     }
+  ,
+  "require-dev": {
+    "roave/security-advisories": "dev-master"
+  }
 }
