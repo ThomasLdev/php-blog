@@ -20,15 +20,78 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9f5963bd-b7d2-41cd-8b84-7a678d9396b2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/requires/header-singlePost.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/frontend/postView.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/manager/postManager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/frontend.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/frontend.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/about.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/contact.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/frontend.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/frontend.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/frontend.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/frontend.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/post.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/frontend/listPostsView.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/frontend/listPostsView.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/frontend/template.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/frontend/template.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requires/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/requires/footer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requires/head.php" beforeDir="false" afterPath="$PROJECT_DIR$/requires/head.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requires/header-singlePost.php" beforeDir="false" afterPath="$PROJECT_DIR$/requires/header-singlePost.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/bootstrap/css/bootstrap-grid.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/bootstrap/css/bootstrap-grid.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/bootstrap/css/bootstrap-grid.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/bootstrap/css/bootstrap-grid.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/bootstrap/css/bootstrap-grid.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/bootstrap/css/bootstrap-grid.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/bootstrap/css/bootstrap-grid.min.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/bootstrap/css/bootstrap-grid.min.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/bootstrap/css/bootstrap-reboot.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/bootstrap/css/bootstrap-reboot.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/bootstrap/css/bootstrap-reboot.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/bootstrap/css/bootstrap-reboot.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/bootstrap/css/bootstrap-reboot.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/bootstrap/css/bootstrap-reboot.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/bootstrap/css/bootstrap-reboot.min.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/bootstrap/css/bootstrap-reboot.min.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/bootstrap/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/bootstrap/css/bootstrap.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/bootstrap/css/bootstrap.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/bootstrap/css/bootstrap.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/bootstrap/css/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/bootstrap/css/bootstrap.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/bootstrap/css/bootstrap.min.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/bootstrap/css/bootstrap.min.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/bootstrap/js/bootstrap.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/bootstrap/js/bootstrap.bundle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/bootstrap/js/bootstrap.bundle.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/bootstrap/js/bootstrap.bundle.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/bootstrap/js/bootstrap.bundle.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/bootstrap/js/bootstrap.bundle.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/bootstrap/js/bootstrap.bundle.min.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/bootstrap/js/bootstrap.bundle.min.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/bootstrap/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/bootstrap/js/bootstrap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/bootstrap/js/bootstrap.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/bootstrap/js/bootstrap.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/bootstrap/js/bootstrap.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/bootstrap/js/bootstrap.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/bootstrap/js/bootstrap.min.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/bootstrap/js/bootstrap.min.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fontawesome-free/css/all.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/fontawesome-free/css/all.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fontawesome-free/css/all.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/fontawesome-free/css/all.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fontawesome-free/css/brands.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/fontawesome-free/css/brands.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fontawesome-free/css/brands.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/fontawesome-free/css/brands.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fontawesome-free/css/fontawesome.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/fontawesome-free/css/fontawesome.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fontawesome-free/css/fontawesome.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/fontawesome-free/css/fontawesome.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fontawesome-free/css/regular.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/fontawesome-free/css/regular.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fontawesome-free/css/regular.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/fontawesome-free/css/regular.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fontawesome-free/css/solid.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/fontawesome-free/css/solid.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fontawesome-free/css/solid.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/fontawesome-free/css/solid.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fontawesome-free/css/svg-with-js.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/fontawesome-free/css/svg-with-js.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fontawesome-free/css/svg-with-js.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/fontawesome-free/css/svg-with-js.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fontawesome-free/css/v4-shims.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/fontawesome-free/css/v4-shims.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fontawesome-free/css/v4-shims.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/fontawesome-free/css/v4-shims.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fontawesome-free/webfonts/fa-brands-400.eot" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/fontawesome-free/webfonts/fa-brands-400.eot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fontawesome-free/webfonts/fa-brands-400.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/fontawesome-free/webfonts/fa-brands-400.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fontawesome-free/webfonts/fa-brands-400.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/fontawesome-free/webfonts/fa-brands-400.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fontawesome-free/webfonts/fa-brands-400.woff" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/fontawesome-free/webfonts/fa-brands-400.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fontawesome-free/webfonts/fa-brands-400.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/fontawesome-free/webfonts/fa-brands-400.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fontawesome-free/webfonts/fa-regular-400.eot" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/fontawesome-free/webfonts/fa-regular-400.eot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fontawesome-free/webfonts/fa-regular-400.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/fontawesome-free/webfonts/fa-regular-400.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fontawesome-free/webfonts/fa-regular-400.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/fontawesome-free/webfonts/fa-regular-400.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fontawesome-free/webfonts/fa-regular-400.woff" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/fontawesome-free/webfonts/fa-regular-400.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fontawesome-free/webfonts/fa-regular-400.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/fontawesome-free/webfonts/fa-regular-400.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fontawesome-free/webfonts/fa-solid-900.eot" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/fontawesome-free/webfonts/fa-solid-900.eot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fontawesome-free/webfonts/fa-solid-900.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/fontawesome-free/webfonts/fa-solid-900.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fontawesome-free/webfonts/fa-solid-900.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/fontawesome-free/webfonts/fa-solid-900.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fontawesome-free/webfonts/fa-solid-900.woff" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/fontawesome-free/webfonts/fa-solid-900.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fontawesome-free/webfonts/fa-solid-900.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/fontawesome-free/webfonts/fa-solid-900.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/jquery/jquery.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/jquery/jquery.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/jquery/jquery.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/jquery/jquery.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/jquery/jquery.min.map" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/jquery/jquery.min.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/jquery/jquery.slim.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/jquery/jquery.slim.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/jquery/jquery.slim.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/jquery/jquery.slim.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/jquery/jquery.slim.min.map" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/jquery/jquery.slim.min.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/frontend/listPostsView.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/view/frontend/listPostsView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/frontend/postView.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/view/frontend/postView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/frontend/template.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/template.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +106,13 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="hiddenUrls">
+      <set>
+        <option value="https://github.com/ThomasLdev/php-blog" />
+      </set>
+    </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -67,6 +137,7 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -76,9 +147,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\Blog\public\img" />
+      <recent name="C:\xampp\htdocs\Blog\public\css" />
+      <recent name="C:\xampp\htdocs\Blog\public\js" />
+      <recent name="C:\xampp\htdocs\Blog\template" />
+      <recent name="C:\xampp\htdocs\Blog\src\controller" />
       <recent name="C:\xampp\htdocs\Blog\public" />
-      <recent name="C:\xampp\htdocs\Blog\public\media" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -91,7 +164,8 @@
       <updated>1603531671503</updated>
       <workItem from="1603531672559" duration="627000" />
       <workItem from="1603532338101" duration="3115000" />
-      <workItem from="1604050898186" duration="15598000" />
+      <workItem from="1604050898186" duration="15954000" />
+      <workItem from="1604138788682" duration="6320000" />
     </task>
     <servers />
   </component>
@@ -108,19 +182,20 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="336" y="361" key="#SQL_Dialects" timestamp="1604061711105">
+    <state x="336" y="361" key="#SQL_Dialects" timestamp="1604143089373">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="336" y="361" key="#SQL_Dialects/0.0.1920.1040/-1080.-406.1080.1880/1920.-410.1080.1880@0.0.1920.1040" timestamp="1604061711105" />
-    <state x="552" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604061729705">
+    <state x="336" y="361" key="#SQL_Dialects/0.0.1920.1040/-1080.-406.1080.1880/1920.-410.1080.1880@0.0.1920.1040" timestamp="1604143089373" />
+    <state x="552" y="178" width="909" height="683" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604140949551">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/-1080.-406.1080.1880/1920.-410.1080.1880@0.0.1920.1040" timestamp="1604061729705" />
+    <state x="552" y="178" width="909" height="683" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/-1080.-406.1080.1880/1920.-410.1080.1880@0.0.1920.1040" timestamp="1604140949551" />
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1604068810157">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -129,30 +204,34 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="736" y="432" width="447" height="278" key="ComposerInitDialogKey/0.0.1920.1040/-1080.-406.1080.1880/1920.-410.1080.1880@0.0.1920.1040" timestamp="1604053782366" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1604060434410">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1604145264949">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/-1080.-406.1080.1880/1920.-410.1080.1880@0.0.1920.1040" timestamp="1604060434410" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1604051047036">
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/-1080.-406.1080.1880/1920.-410.1080.1880@0.0.1920.1040" timestamp="1604145264949" />
+    <state width="1597" height="282" key="GridCell.Tab.0.bottom" timestamp="1604143127233">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1080.-406.1080.1880/1920.-410.1080.1880@0.0.1920.1040" timestamp="1604051047036" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1604051047036">
+    <state width="1597" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1080.-406.1080.1880/1920.-410.1080.1880@0.0.1920.1040" timestamp="1604143127233" />
+    <state width="1597" height="282" key="GridCell.Tab.0.center" timestamp="1604143127233">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/-1080.-406.1080.1880/1920.-410.1080.1880@0.0.1920.1040" timestamp="1604051047036" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1604051047036">
+    <state width="1597" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/-1080.-406.1080.1880/1920.-410.1080.1880@0.0.1920.1040" timestamp="1604143127233" />
+    <state width="1597" height="282" key="GridCell.Tab.0.left" timestamp="1604143127233">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/-1080.-406.1080.1880/1920.-410.1080.1880@0.0.1920.1040" timestamp="1604051047036" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1604051047036">
+    <state width="1597" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/-1080.-406.1080.1880/1920.-410.1080.1880@0.0.1920.1040" timestamp="1604143127233" />
+    <state width="1597" height="282" key="GridCell.Tab.0.right" timestamp="1604143127233">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/-1080.-406.1080.1880/1920.-410.1080.1880@0.0.1920.1040" timestamp="1604051047036" />
-    <state x="665" y="477" key="NewPhpFileDialog" timestamp="1604068985414">
+    <state width="1597" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/-1080.-406.1080.1880/1920.-410.1080.1880@0.0.1920.1040" timestamp="1604143127233" />
+    <state width="196" height="457" key="HiddenNamespacesPopup" timestamp="1604140809358">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="665" y="477" key="NewPhpFileDialog/0.0.1920.1040/-1080.-406.1080.1880/1920.-410.1080.1880@0.0.1920.1040" timestamp="1604068985414" />
+    <state width="196" height="457" key="HiddenNamespacesPopup/0.0.1920.1040/-1080.-406.1080.1880/1920.-410.1080.1880@0.0.1920.1040" timestamp="1604140809358" />
+    <state x="665" y="477" key="NewPhpFileDialog" timestamp="1604145953543">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="665" y="477" key="NewPhpFileDialog/0.0.1920.1040/-1080.-406.1080.1880/1920.-410.1080.1880@0.0.1920.1040" timestamp="1604145953543" />
     <state x="374" y="863" key="NewPhpFileDialog/1080.407.1920.1040/0.0.1080.1880@0.0.1080.1880" timestamp="1603531712376" />
   </component>
 </project>

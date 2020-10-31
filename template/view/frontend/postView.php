@@ -1,8 +1,8 @@
 <?php
 
-require ('requires/head.php');
-require ('requires/header-nav.php');
-require ('requires/header-singlePost.php');
+require('requires/head.php');
+require('requires/header-nav.php');
+require('requires/header-singlePost.php');
 ?>
 
 <article>

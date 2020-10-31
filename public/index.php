@@ -1,6 +1,6 @@
 <?php
 
-require ('controller/frontend.php');
+require('controller/frontend.php');
 
 if (isset($_GET['action'])) {
     if ($_GET['action'] === 'listPosts'){
@@ -10,7 +10,7 @@ if (isset($_GET['action'])) {
         showPost();
     }
     else {
-        echo 'Aucun ID correct de post envoyé. Veuillez ne pas modifier les valeurs d\'actions en URL;';
+        echo 'Post ID is uncorrect. Please don\'t change any value directly in the address bar;';
     }
 } else {
     listPosts();

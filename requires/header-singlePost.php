@@ -5,13 +5,13 @@
             <div class="col-lg-8 col-md-10 mx-auto">
                 <div class="post-heading">
                     <h1><?= $post['title']?></h1>
-                    <h2 class="subheading">Catégorie : <?= $post['category']?></h2>
+                    <h2 class="subheading">Category : <?= $post['category']?></h2>
                     <span class="meta">Posted by
               <a href="#">Start Bootstrap</a>
               on <?= $post['created_at'] ?></span>
                     <span class="meta mt-3">
-                        <a href="index.php">
-                        Retour
+                        <a href="../public/index.php">
+                        Return to post list
                     </a>
                     </span>
                 </div>
