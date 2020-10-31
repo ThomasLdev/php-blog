@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:Blog" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="9f5963bd-b7d2-41cd-8b84-7a678d9396b2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.browserslistrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.travis.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/about.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/contact.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gulpfile.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/post.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/clean-blog.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/clean-blog.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/about-bg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/contact-bg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/home-bg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/post-bg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/post-sample-image.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/clean-blog.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/clean-blog.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/contact_me.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/jqBootstrapValidation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/mail/contact_me.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/scss/_bootstrap-overrides.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/scss/_contact.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/scss/_footer.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/scss/_global.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/scss/_masthead.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/scss/_mixins.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/scss/_navbar.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/scss/_post.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/scss/_variables.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/scss/clean-blog.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/twig/twig" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/vendor/fontawesome-free/webfonts" />
+      <path value="$PROJECT_DIR$/vendor/fontawesome-free/css" />
+      <path value="$PROJECT_DIR$/vendor/bootstrap/js" />
+      <path value="$PROJECT_DIR$/vendor/bootstrap/css" />
+    </include_path>
+  </component>
+  <component name="ProjectId" id="1jJohBdFuxeIopJpSe70exLyYSe" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\Blog\public" />
+      <recent name="C:\xampp\htdocs\Blog\public\media" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9f5963bd-b7d2-41cd-8b84-7a678d9396b2" name="Default Changelist" comment="" />
+      <created>1603531671503</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1603531671503</updated>
+      <workItem from="1603531672559" duration="627000" />
+      <workItem from="1603532338101" duration="3115000" />
+      <workItem from="1604050898186" duration="310000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1604051047036">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1080.-406.1080.1880/1920.-410.1080.1880@0.0.1920.1040" timestamp="1604051047036" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1604051047036">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/-1080.-406.1080.1880/1920.-410.1080.1880@0.0.1920.1040" timestamp="1604051047036" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1604051047036">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/-1080.-406.1080.1880/1920.-410.1080.1880@0.0.1920.1040" timestamp="1604051047036" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1604051047036">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/-1080.-406.1080.1880/1920.-410.1080.1880@0.0.1920.1040" timestamp="1604051047036" />
+    <state x="374" y="863" key="NewPhpFileDialog" timestamp="1603531712376">
+      <screen x="0" y="0" width="1080" height="1880" />
+    </state>
+    <state x="374" y="863" key="NewPhpFileDialog/1080.407.1920.1040/0.0.1080.1880@0.0.1080.1880" timestamp="1603531712376" />
+  </component>
+</project>
