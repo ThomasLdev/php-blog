@@ -1,18 +1,10 @@
 <?php
 
-class PostManager
-{
-    private function connectDB()
-    {
-        try {
-            return new PDO('mysql:host=localhost;dbname=blog;charset=utf8', 'root', '');
-        }
-        catch(Exception $e)
-        {
-            die('Error : '.$e->getMessage());
-        }
-    }
+namespace OC\Blog\Model;
+require_once ('Manager.php');
 
+class PostManager extends Manager
+{
     public function getPosts()
     {
         $db = $this->connectDB();
