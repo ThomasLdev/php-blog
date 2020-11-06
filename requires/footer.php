@@ -28,15 +28,15 @@
                                 </a>
                             </li>
                         </ul>
-                        <p class="copyright text-muted">Copyright &copy; Your Website 2020</p>
+                        <p class="copyright text-muted">Copyright &copy; Thomas LEFEBVRE 2020</p>
                     </div>
                 </div>
             </div>
         </footer>
         <!-- Bootstrap core JavaScript -->
         <script src="../public/js/jquery/jquery.min.js"></script>
-        <script src="../public/css/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="../public/js/bootstrap.bundle.min.js"></script>
         <!-- Custom scripts for this template -->
-        <script src="public/js/clean-blog.min.js"></script>
+        <script src="../public/js/clean-blog.min.js"></script>
     </body>
 </html>

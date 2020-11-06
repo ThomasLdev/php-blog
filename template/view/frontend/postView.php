@@ -1,8 +1,8 @@
 <?php
 
-require('requires/head.php');
-require('requires/header-nav.php');
-require('requires/header-singlePost.php');
+require('../requires/head.php');
+require('../requires/header-nav.php');
+require('../requires/header-singlePost.php');
 ?>
 
 <article>
@@ -16,3 +16,5 @@ require('requires/header-singlePost.php');
       </div>
     </div>
   </article>
+
+<?php require('../requires/footer.php'); ?>
