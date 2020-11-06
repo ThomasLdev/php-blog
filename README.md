@@ -1,2 +1,0 @@
-# php-blog
-Openclass project
