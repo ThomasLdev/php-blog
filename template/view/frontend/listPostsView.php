@@ -1,7 +1,7 @@
 <?php
-require('requires/head.php');
-require('requires/header-nav.php');
-require('requires/header.php');
+require('../requires/head.php');
+require('../requires/header-nav.php');
+require('../requires/header.php');
 ?>
 <div class="container">
     <div class="row">
@@ -11,14 +11,14 @@ require('requires/header.php');
 {
     ?>
     <div class="post-preview">
-        <a href="../../../public/index.php?action=showPost&amp;id=<?= $data['id'] ?>">
+        <a href="../public/index.php?action=showPost&amp;id=<?= $data['id'] ?>">
             <h2 class="post-title">
                 <?= htmlspecialchars($data['title']) ?>
             </h2>
         </a>
         <p>
             <?= htmlspecialchars(substr($data['content'], 0, 100)) ?>...
-            <a href="../../../public/index.php?action=showPost&amp;id=<?= $data['id'] ?>">En lire plus</a>
+            <a href="../public/index.php?action=showPost&amp;id=<?= $data['id'] ?>">En lire plus</a>
         </p>
         <p class="post-meta">Posted by
             <a href="#">Start Bootstrap</a>
@@ -31,5 +31,5 @@ require('requires/header.php');
   </div>
 
 <?php $posts->closeCursor();
-require('requires/footer.php');
+require('../requires/footer.php');
 ?>

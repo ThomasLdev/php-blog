@@ -1,15 +1,15 @@
 <?php
 
-require('model/frontend.php');
+require('../model/frontend.php');
 
 function listPosts()
 {
     $posts = getPosts();
-    require('view/frontend/listPostsView.php');
+    require('../template/view/frontend/listPostsView.php');
 }
 
 function showPost()
 {
     $post = getPost($_GET['id']);
-    require('view/frontend/postView.php');
+    require('../template/view/frontend/postView.php');
 }

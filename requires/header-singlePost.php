@@ -1,4 +1,4 @@
-<header class="masthead" style="background-image: url('img/post-bg.jpg')">
+<header class="masthead" style="background-image: url('../public/img/post-bg.jpg')">
     <div class="overlay"></div>
     <div class="container">
         <div class="row">
@@ -7,7 +7,7 @@
                     <h1><?= $post['title']?></h1>
                     <h2 class="subheading">Category : <?= $post['category']?></h2>
                     <span class="meta">Posted by
-              <a href="#">Start Bootstrap</a>
+              <a href="#"><?= $post['author_id']?></a>
               on <?= $post['created_at'] ?></span>
                     <span class="meta mt-3">
                         <a href="../public/index.php">
