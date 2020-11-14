@@ -3,20 +3,23 @@
 require __DIR__ . '/../vendor/autoload.php';
 use App\Controller\FrontendController;
 
+$loader = new \Twig\Loader\FilesystemLoader(__DIR__ .'/../templates');
+$twig = new \Twig\Environment($loader);
+
 if (isset($_GET['action'])) {
     if ($_GET['action'] === 'listPosts'){
-        $posts = new FrontendController();
+        $posts = new FrontendController($twig);
         $posts->listPosts();
     }
     elseif ($_GET['action'] === 'showPost') {
-        $post = new FrontendController();
+        $post = new FrontendController($twig);
         $post->showPost();
     }
     else {
         echo 'Post ID is uncorrect. Please don\'t change any value directly in the address bar;';
     }
 } else {
-    $posts = new FrontendController();
+    $posts = new FrontendController($twig);
     $posts->listPosts();
 }
 
@@ -28,5 +31,5 @@ if (isset($_GET['action'])) {
         showPost();
         break;
     default:
-        header("../template/view/fronted/404.twig");
+        header("../templates/view/fronted/404.twig");
 }*/

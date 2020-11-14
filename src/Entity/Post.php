@@ -2,7 +2,7 @@
 
 Namespace App\Entity;
 
-class Post extends Manager
+class Post
 {
     private ?int $id = null;
     private ?string $author = null;

@@ -5,18 +5,27 @@ use App\Manager\PostManager;
 
 class FrontendController
 {
-    function listPosts()
+    private \Twig\Environment $twig;
+
+    public function __construct(\Twig\Environment $twig)
+    {
+        $this->twig = $twig;
+    }
+
+    public function listPosts()
     {
         $postManager = new PostManager();
         $posts = $postManager->getPosts();
-        require('../template/view/frontend/listPostsView.php');
+        echo $this->twig->render('home.twig', ['posts'=>$posts]);
+        //require('../templates/view/frontend/listPostsView.php');
     }
 
-    function showPost()
+    public function showPost()
     {
         $postManager = new PostManager();
         $post = $postManager->getPost($_GET['id']);
-        require('../template/view/frontend/postView.php');
+        echo $this->twig->render('post.twig', ['post'=>$post]);
+        //require('../templates/view/frontend/postView.php');
     }
 }
 
