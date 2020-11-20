@@ -1,0 +1,52 @@
+{% extends "base.html.twig" %}
+
+{% block head %}
+    {{ parent() }}
+    {% block headTitle %}
+        <title>Thomas LEFEBVRE - Développeur Backend</title>
+        {# Le title est répété deux fois dans le code source, voir pourquoi #}
+    {% endblock %}
+{% endblock %}
+
+{% block header %}
+    {{ parent() }}
+    {% block headerTitle %}
+        Développeur Backend
+    {% endblock %}
+    {% block headerSubtitle %}
+        Spécialisé en PHP 7 et Symfony 4
+    {% endblock %}
+{% endblock %}
+{% block backHome %}
+{% endblock %}
+
+{% block content %}
+    {{ parent() }}
+    <div class="container">
+        {% for post in posts %}
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <div class="post-preview">
+                        <a href="../public/index.php?action=showPost&amp;id={{ post.id }}">
+                            <h2 class="post-title">
+                                {{ post.title }}
+                            </h2>
+                        </a>
+                        <a class="overlay" href="../public/index.php?action=showPost&amp;id={{ post.id }}">
+                            <img class="post-thumbnail" src="../public/img/header-single.jpg" alt="post image"/>
+                            <!-- Mettre l'image en variable twig et stocker sa reference en base, réhydrater et tout -->
+                        </a>
+                        <p>
+                            {{ post.content }}...
+                            <a href="../public/index.php?action=showPost&amp;id={{ post.id }}">En lire plus</a>
+                        </p>
+                        <p class="post-meta">Publié par
+                            <a href="#">{{ post.author }}</a>
+                            le <em>{{ post.created_at }}</em>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

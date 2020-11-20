@@ -1,2 +1,38 @@
+.post-thumbnail {
+    width: 100%;
+    height: auto;
+}
+
+.overlay:hover{
+    opacity: 0.8;
+}
+
+.back-home-text{
+    font-size: 2rem;
+    text-align: center;
+    padding: 10px;
+}
+
+.back-home-container{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: row;
+}
+
+.icon-flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.back-link:hover{
+    text-decoration: none;
+}
+
+.fa-arrow-circle-left:hover{
+    color: #0085a1 !important;
+}
 
 

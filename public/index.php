@@ -2,9 +2,11 @@
 
 require __DIR__ . '/../vendor/autoload.php';
 use App\Controller\FrontendController;
+use Twig\Environment;
+use Twig\Loader\FilesystemLoader;
 
-$loader = new \Twig\Loader\FilesystemLoader(__DIR__ .'/../templates');
-$twig = new \Twig\Environment($loader);
+$loader = new FilesystemLoader(__DIR__ .'/../templates');
+$twig = new Environment($loader);
 
 if (isset($_GET['action'])) {
     if ($_GET['action'] === 'listPosts'){
@@ -23,13 +25,17 @@ if (isset($_GET['action'])) {
     $posts->listPosts();
 }
 
+//Refacto en switch case
 /*switch ($_GET['action']) {
     case "home":
-        listPosts();
+        $posts = new FrontendController($twig);
+        $posts->listPosts();
         break;
-    case "post" :
-        showPost();
+    case "showPost" :
+        $post = new FrontendController($twig);
+        $post->showPost();
         break;
     default:
-        header("../templates/view/fronted/404.twig");
+        $posts = new FrontendController($twig);
+        $posts->listPosts();
 }*/

@@ -2,6 +2,9 @@
 
 Namespace App\Controller;
 use App\Manager\PostManager;
+use Twig\Error\LoaderError;
+use Twig\Error\RuntimeError;
+use Twig\Error\SyntaxError;
 
 class FrontendController
 {
@@ -16,16 +19,24 @@ class FrontendController
     {
         $postManager = new PostManager();
         $posts = $postManager->getPosts();
-        echo $this->twig->render('home.twig', ['posts'=>$posts]);
-        //require('../templates/view/frontend/listPostsView.php');
+        try {
+            echo $this->twig->render('home.html.twig', ['posts' => $posts]);
+        } catch (LoaderError $e) {
+        } catch (RuntimeError $e) {
+        } catch (SyntaxError $e) {
+        }
     }
 
     public function showPost()
     {
         $postManager = new PostManager();
         $post = $postManager->getPost($_GET['id']);
-        echo $this->twig->render('post.twig', ['post'=>$post]);
-        //require('../templates/view/frontend/postView.php');
+        try {
+            echo $this->twig->render('post.html.twig', ['post' => $post]);
+        } catch (LoaderError $e) {
+        } catch (RuntimeError $e) {
+        } catch (SyntaxError $e) {
+        }
     }
 }
 
