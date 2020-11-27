@@ -11,6 +11,8 @@
     font-size: 2rem;
     text-align: center;
     padding: 10px;
+    color: white;
+    text-decoration: underline;
 }
 
 .back-home-container{

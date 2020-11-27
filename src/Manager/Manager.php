@@ -1,12 +1,13 @@
 <?php
 
 namespace App\Manager;
-use PDO;
 
 abstract class Manager
 {
-    protected function connectDB()
+    protected \PDO $pdo;
+
+    public function __construct(\PDO $pdo)
     {
-        return new PDO('mysql:host=localhost;dbname=blog;charset=utf8', 'root', '');
+        $this->pdo = $pdo;
     }
 }

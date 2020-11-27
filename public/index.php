@@ -4,46 +4,31 @@ require __DIR__ . '/../vendor/autoload.php';
 
 use App\Controller\AdminController;
 use App\Controller\FrontendController;
+use App\Manager\PostManager;
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
 
 $loader = new FilesystemLoader(__DIR__ .'/../templates');
 $twig = new Environment($loader);
 
-if (isset($_GET['action'])) {
-    if ($_GET['action'] === 'listPosts'){
-        $posts = new FrontendController($twig);
-        $posts->listPosts();
-    }
-    elseif ($_GET['action'] === 'showPost') {
-        $post = new FrontendController($twig);
-        $post->showPost();
-    }
-    elseif ($_GET['action'] === 'showAdmin') {
-        $admin = new AdminController($twig);
-        $admin->showAdmin();
-    }
-    else {
-        echo 'Post ID is uncorrect. Please don\'t change any value directly in the address bar;';
-    }
-} else {
-    $posts = new FrontendController($twig);
-    $posts->listPosts();
-}
+$pdo = new PDO('mysql:host=localhost;dbname=blog;charset=utf8', 'root', '');
+$postManager = new PostManager($pdo);
 
-//Refacto en switch case, erreur sur l'action à régler ligne 29, mais ça marche quand même
-    /*switch ($_GET['action']) {
+    $action = isset($_GET['action']) ? $_GET['action'] : null;
+    switch ($action) {
         case "listPosts":
-            $posts = new FrontendController($twig);
+            $posts = new FrontendController($twig, $postManager);
             $posts->listPosts();
             break;
         case "showPost" :
-            $post = new FrontendController($twig);
-            $post->showPost();
+            $post = new FrontendController($twig, $postManager);
+            $post->showPost($_GET['id']);
             break;
-        case "adminPanel":
+        case "showAdmin":
             $admin = new AdminController($twig);
+            $admin->showAdmin();
+            break;
         default:
-            $posts = new FrontendController($twig);
+            $posts = new FrontendController($twig, $postManager);
             $posts->listPosts();
-    }*/
+    }

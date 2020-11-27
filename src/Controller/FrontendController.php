@@ -9,16 +9,17 @@ use Twig\Error\SyntaxError;
 class FrontendController
 {
     private \Twig\Environment $twig;
+    private PostManager $postManager;
 
-    public function __construct(\Twig\Environment $twig)
+    public function __construct(\Twig\Environment $twig, PostManager $postManager)
     {
         $this->twig = $twig;
+        $this->postManager = $postManager;
     }
 
     public function listPosts()
     {
-        $postManager = new PostManager();
-        $posts = $postManager->getPosts();
+        $posts = $this->postManager->getPosts();
         try {
             echo $this->twig->render('home.html.twig', ['posts' => $posts]);
         } catch (LoaderError $e) {
@@ -27,10 +28,9 @@ class FrontendController
         }
     }
 
-    public function showPost()
+    public function showPost(int $postId)
     {
-        $postManager = new PostManager();
-        $post = $postManager->getPost($_GET['id']);
+        $post = $this->postManager->getPost($postId);
         try {
             echo $this->twig->render('post.html.twig', ['post' => $post]);
         } catch (LoaderError $e) {

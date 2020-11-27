@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
     <head>
-        {% block head %}
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
             <title>{% block headTitle %}{% endblock %}</title>
@@ -17,7 +16,6 @@
             <link rel="stylesheet" href="../public/css/bootstrap.min.css">
             <link rel="stylesheet" href="../public/css/clean-blog.min.css">
             <link rel="stylesheet" href="../public/css/custom-style.css">
-        {% endblock %}
     </head>
     <body>
 
@@ -51,9 +49,8 @@
         </div>
     </nav>
 
-    <header class="masthead" style="background-image: url('../public/img/header-home.jpg')">
+    <header class="masthead" style="background-image: url({% block headerURL %} '../public/img/header-home.jpg' {% endblock %})">
         <!-- Mettre l'image en variable twig et stocker sa reference en base, réhydrater et tout -->
-        {% block header %}
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-md-10 mx-auto">
@@ -64,15 +61,12 @@
                     </div>
                 </div>
             </div>
-        {% endblock %}
         {% block backHome %}
             <div class="row">
                 <div class="col-12 mx-auto d-flex justify-content-end">
                     <a class="back-link" href="../public/index.php">
                         <div class="back-home-container">
-                            <i class="icon-flex fas fa-arrow-circle-left fa-3x text-white">
-                                <span class="back-home-text">Retour à l'accueil</span>
-                            </i>
+                            <span class="back-home-text">Retour à l'accueil</span>
                         </div>
                     </a>
                 </div>
