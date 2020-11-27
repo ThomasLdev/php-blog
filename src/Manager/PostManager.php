@@ -14,6 +14,7 @@ class PostManager extends Manager
                    p.updated_at "post_update",
                    p.category "post_category",
                    p.content "post_content",
+                   p.thumbnail "post_thumbnail",
                    u.first_name "post_author"
                    FROM posts p
                    JOIN user u on p.author_id = u.id
@@ -37,6 +38,7 @@ class PostManager extends Manager
                    p.updated_at "post_update",
                    p.category "post_category",
                    p.content "post_content",
+                   p.thumbnail "post_thumbnail",
                    u.first_name "post_author"
                    FROM posts p
                    JOIN user u on p.author_id = u.id
@@ -44,6 +46,15 @@ class PostManager extends Manager
         $singlePostRequest->execute(array($postId));
         $postSql = $singlePostRequest->fetch();
         return $this->hydratePost($postSql);
+    }
+
+    private function sendPost(): Post
+    {
+        // Récupérer les infos du controller admin
+
+        // et les envoyer en base
+        $sendPostRequest = $this->pdo->query('
+        ');
     }
 
     private function hydratePost(array $postSQL): Post
@@ -56,6 +67,7 @@ class PostManager extends Manager
         $post->setUpdatedAt((new \DateTime($postSQL['post_update'])));
         $post->setCategory($postSQL['post_category']);
         $post->setContent($postSQL['post_content']);
+        $post->setThumbnail($postSQL['post_thumbnail']);
         return $post;
     }
 }

@@ -11,6 +11,7 @@ class Post
     private ?\DateTime $updated_at = null;
     private ?string $category = null;
     private ?string $content = null;
+    private ?string $thumbnail = null;
 
     public function getId(): ?int
     {
@@ -47,6 +48,11 @@ class Post
         return $this->content;
     }
 
+    public function getThumbnail(): ?string
+    {
+        return $this->thumbnail;
+    }
+
     public function setId(int $id)
     {
         $this->id = $id;
@@ -80,5 +86,10 @@ class Post
     public function setContent(string $content)
     {
         $this->content = $content;
+    }
+
+    public function setThumbnail(string $thumbnail)
+    {
+        $this->thumbnail = $thumbnail;
     }
 }

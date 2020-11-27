@@ -28,6 +28,10 @@ $postManager = new PostManager($pdo);
             $admin = new AdminController($twig);
             $admin->showAdmin();
             break;
+        case "createPost":
+            $createPost = new AdminController($twig);
+            $createPost->createPost();
+            break;
         default:
             $posts = new FrontendController($twig, $postManager);
             $posts->listPosts();

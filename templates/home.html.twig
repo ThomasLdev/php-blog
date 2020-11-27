@@ -1,4 +1,4 @@
-{% extends "base.html.twig" %}
+{% extends "base-page.html.twig" %}
 
 
 {% block headTitle %} Thomas LEFEBVRE - Développeur Backend {% endblock %}
@@ -20,7 +20,7 @@
                             </h2>
                         </a>
                         <a class="overlay" href="../public/index.php?action=showPost&amp;id={{ post.id }}">
-                            <img class="post-thumbnail" src="../public/img/header-single.jpg" alt="post image"/>
+                            <img class="post-thumbnail" src="{{ post.thumbnail }}" alt="post image"/>
                             <!-- Mettre l'image en variable twig et stocker sa reference en base, réhydrater et tout -->
                         </a>
                         <p class="text-justify">
@@ -29,8 +29,9 @@
                         </p>
                         <p class="post-meta">Publié par
                             <a href="#">{{ post.author }}</a>
-                            le <em>{{ post.created_at }}</em>
+                            le <em>{{ post.created_at|date("d/m/Y") }}</em>
                         </p>
+                        <hr />
                     </div>
                 </div>
             </div>
