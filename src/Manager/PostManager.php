@@ -42,19 +42,26 @@ class PostManager extends Manager
                    u.first_name "post_author"
                    FROM posts p
                    JOIN user u on p.author_id = u.id
-                   WHERE p.id = ?');
-        $singlePostRequest->execute(array($postId));
+                   WHERE p.id = :id');
+        $singlePostRequest->execute(array('id' => $postId));
         $postSql = $singlePostRequest->fetch();
         return $this->hydratePost($postSql);
     }
 
-    private function sendPost(): Post
+    public function savePost(Post $post)
     {
-        // Récupérer les infos du controller admin
-
-        // et les envoyer en base
-        $sendPostRequest = $this->pdo->query('
+        $sendPostRequest = $this->pdo->prepare('
+        INSERT INTO posts (author_id, title, created_at, updated_at, category, content, thumbnail) VALUES (:authorId, :title, :createdAt, :updatedAt, :category, :content, :thumbnail)
         ');
+        $sendPostRequest->execute([
+            'authorId' => $post->getAuthor(),
+            'title' => $post->getTitle(),
+            'createdAt' => $post->getCreatedAt()->format('Y-m-d h:i:s'),
+            'updatedAt' => $post->getUpdatedAt()->format('Y-m-d h:i:s'),
+            'category' => $post->getCategory(),
+            'content' => $post->getContent(),
+            'thumbnail' => $post->getThumbnail()
+        ]);
     }
 
     private function hydratePost(array $postSQL): Post

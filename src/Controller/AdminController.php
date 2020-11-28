@@ -10,10 +10,12 @@ use Twig\Error\SyntaxError;
 class AdminController
 {
     private \Twig\Environment $twig;
+    private PostManager $postManager;
 
-    public function __construct(\Twig\Environment $twig)
+    public function __construct(\Twig\Environment $twig, PostManager $postManager)
     {
         $this->twig = $twig;
+        $this->postManager = $postManager;
     }
 
     public function showAdmin()
@@ -34,9 +36,12 @@ class AdminController
             $createdPost->setThumbnail($_POST['post-thumbnail']);
             $createdPost->setCategory($_POST['post-category']);
             $createdPost->setContent($_POST['post-content']);
-            $createdPost->setAuthor($_POST['post-author']);
-            //$createdPost->setCreatedAt((new \DateTime($_POST['post_date'])));
-            //Transmission au PostManager qui va envoyer en base
+            $createdPost->setAuthor(1);
+            $createdPost->setCreatedAt(new \DateTime());
+            $createdPost->setUpdatedAt(new \DateTime());
+            $this->postManager->savePost($createdPost);
+            header('Location: index.php?action=showAdmin');
+
         }
         else {
             try {

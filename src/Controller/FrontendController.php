@@ -9,6 +9,7 @@ use Twig\Error\SyntaxError;
 class FrontendController
 {
     private \Twig\Environment $twig;
+
     private PostManager $postManager;
 
     public function __construct(\Twig\Environment $twig, PostManager $postManager)

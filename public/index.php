@@ -14,25 +14,23 @@ $twig = new Environment($loader);
 $pdo = new PDO('mysql:host=localhost;dbname=blog;charset=utf8', 'root', '');
 $postManager = new PostManager($pdo);
 
+$frontController = new FrontendController($twig, $postManager);
+$adminController = new AdminController($twig, $postManager);
+
     $action = isset($_GET['action']) ? $_GET['action'] : null;
     switch ($action) {
         case "listPosts":
-            $posts = new FrontendController($twig, $postManager);
-            $posts->listPosts();
+            $frontController->listPosts();
             break;
         case "showPost" :
-            $post = new FrontendController($twig, $postManager);
-            $post->showPost($_GET['id']);
+            $frontController->showPost($_GET['id']);
             break;
         case "showAdmin":
-            $admin = new AdminController($twig);
-            $admin->showAdmin();
+            $adminController->showAdmin();
             break;
         case "createPost":
-            $createPost = new AdminController($twig);
-            $createPost->createPost();
+            $adminController->createPost();
             break;
         default:
-            $posts = new FrontendController($twig, $postManager);
-            $posts->listPosts();
+            $frontController->listPosts();
     }
