@@ -89,6 +89,17 @@ class PostManager extends Manager
         ]);
     }
 
+    public function updatePost(Post $post)
+    {
+
+    }
+
+    public function deletePost(int $postId)
+    {
+        $singlePostRequest = $this->pdo->prepare('DELETE FROM posts WHERE id = :id');
+        $singlePostRequest->execute(array('id' => $postId));
+    }
+
     private function hydratePost(array $postSQL): Post
     {
         $post = new Post();

@@ -4,24 +4,21 @@
                         <form method="post" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label for="post-title">Titre de l'article</label>
-                                <input type="text" class="form-control" name="post-title" id="post-title" required>
+                                <input type="text" class="form-control" name="post-title" id="post-title" required value="{{ post.title }}">
                             </div>
                             <div class="form-group">
                                 <label for="post-thumbnail">Chemin vers l'image</label>
-                                <input type="text" class="form-control" name="post-thumbnail" id="post-thumbnail" placeholder="..public/img/article/image.jpg">
+                                <input type="text" class="form-control" name="post-thumbnail" id="post-thumbnail" placeholder="..public/img/article/image.jpg" value="{{ post.thumbnail }}">
                             </div>
                             <div class="form-group">
                                 <label for="post-category">Catégorie</label>
-                                <input type="text" class="form-control" name="post-category" id="post-category">
+                                <input type="text" class="form-control" name="post-category" id="post-category" value="{{ post.category }}">
                             </div>
                             <div class="form-group">
                                 <label for="post-content">Corps de l'article</label>
                                 <textarea class="form-control" name="post-content" id="post-content" rows="15"></textarea>
                             </div>
-                            <button type="submit" class="btn btn-primary p-3">Poster l'article</button>
-                            <a href="../public/index.php?action=showAdmin" class="btn btn-outline-danger p-3">Retour</a>
+                            <button type="submit" class="btn btn-primary p-3">Updater l'article</button>
+                            <a href="../public/index.php?action=managePost" class="btn btn-outline-danger p-3">Retour</a>
                         </form>
                     {% endblock %}
-
-
-
