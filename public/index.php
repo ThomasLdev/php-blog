@@ -31,6 +31,9 @@ $adminController = new AdminController($twig, $postManager);
         case "createPost":
             $adminController->createPost();
             break;
+        case "managePost":
+            $adminController->managePost();
+            break;
         default:
             $frontController->listPosts();
     }

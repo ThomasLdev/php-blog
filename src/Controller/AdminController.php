@@ -51,8 +51,18 @@ class AdminController
             } catch (SyntaxError $e) {
             }
         }
+        header('Location: index.php?action=managePost');
+    }
 
-        //header(article crée)
-
+    public function managePost()
+    {
+        $allPosts = $this->postManager->getAllPosts();
+        //var_dump($allPosts); die(); >> OK
+        try {
+            echo $this->twig->render('manage-post.html.twig', ['allPosts' => $allPosts]);
+        } catch (LoaderError $e) {
+        } catch (RuntimeError $e) {
+        } catch (SyntaxError $e) {
+        }
     }
 }

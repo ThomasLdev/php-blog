@@ -5,6 +5,31 @@ use App\Entity\Post;
 
 class PostManager extends Manager
 {
+
+    public function getAllPosts(): array
+    {
+        $allPostsRequest = $this->pdo->query('
+        SELECT     p.id "post_id",
+                   p.title "post_title",
+                   p.created_at "post_date",
+                   p.updated_at "post_update",
+                   p.category "post_category",
+                   p.content "post_content",
+                   p.thumbnail "post_thumbnail",
+                   u.first_name "post_author"
+                   FROM posts p
+                   JOIN user u on p.author_id = u.id
+                   ORDER BY p.created_at DESC;
+        ');
+        $postsSQL = $allPostsRequest->fetchAll();
+        $allPosts = [];
+        foreach ($postsSQL as $postSQL)
+        {
+            $allPosts[] = $this->hydratePost($postSQL);
+        }
+        return $allPosts;
+    }
+
     public function getPosts(): array
     {
         $lastPostsRequest = $this->pdo->query('
