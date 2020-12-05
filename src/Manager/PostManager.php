@@ -5,11 +5,11 @@ use App\Entity\Post;
 
 class PostManager extends Manager
 {
+    const POST_LIMIT = 5;
 
-    public function getAllPosts(): array
+    public function getPosts(int $limit = null): array
     {
-        $allPostsRequest = $this->pdo->query('
-        SELECT     p.id "post_id",
+        $request = 'SELECT     p.id "post_id",
                    p.title "post_title",
                    p.created_at "post_date",
                    p.updated_at "post_update",
@@ -19,32 +19,18 @@ class PostManager extends Manager
                    u.first_name "post_author"
                    FROM posts p
                    JOIN user u on p.author_id = u.id
-                   ORDER BY p.created_at DESC;
-        ');
-        $postsSQL = $allPostsRequest->fetchAll();
-        $allPosts = [];
-        foreach ($postsSQL as $postSQL)
-        {
-            $allPosts[] = $this->hydratePost($postSQL);
+                   ORDER BY p.created_at DESC';
+        if ($limit) {
+            $request .= ' LIMIT 0, :limit';
         }
-        return $allPosts;
-    }
 
-    public function getPosts(): array
-    {
-        $lastPostsRequest = $this->pdo->query('
-        SELECT     p.id "post_id",
-                   p.title "post_title",
-                   p.created_at "post_date",
-                   p.updated_at "post_update",
-                   p.category "post_category",
-                   p.content "post_content",
-                   p.thumbnail "post_thumbnail",
-                   u.first_name "post_author"
-                   FROM posts p
-                   JOIN user u on p.author_id = u.id
-                   ORDER BY p.created_at DESC LIMIT 0, 5;
-        ');
+        $lastPostsRequest = $this->pdo->prepare($request);
+
+        if ($limit) {
+            $lastPostsRequest->bindValue(':limit', $limit, \PDO::PARAM_INT);
+        }
+
+        $lastPostsRequest->execute();
         $postsSQL = $lastPostsRequest->fetchAll();
         $posts = [];
         foreach ($postsSQL as $postSQL)
@@ -68,13 +54,14 @@ class PostManager extends Manager
                    FROM posts p
                    JOIN user u on p.author_id = u.id
                    WHERE p.id = :id');
-        $singlePostRequest->execute(array('id' => $postId));
+        $singlePostRequest->execute(['id' => $postId]);
         $postSql = $singlePostRequest->fetch();
         return $this->hydratePost($postSql);
     }
 
     public function savePost(Post $post)
     {
+        //Modifier pour soit insert soit update selon $post->getId()
         $sendPostRequest = $this->pdo->prepare('
         INSERT INTO posts (author_id, title, created_at, updated_at, category, content, thumbnail) VALUES (:authorId, :title, :createdAt, :updatedAt, :category, :content, :thumbnail)
         ');
@@ -87,11 +74,6 @@ class PostManager extends Manager
             'content' => $post->getContent(),
             'thumbnail' => $post->getThumbnail()
         ]);
-    }
-
-    public function updatePost(Post $post)
-    {
-
     }
 
     public function deletePost(int $postId)

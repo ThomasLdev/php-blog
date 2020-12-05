@@ -43,26 +43,13 @@ class AdminController
             header('Location: index.php?action=showAdmin');
 
         }
-        else {
-            try {
-                echo $this->twig->render('create-post.html.twig');
-            } catch (LoaderError $e) {
-            } catch (RuntimeError $e) {
-            } catch (SyntaxError $e) {
-            }
-        }
-        header('Location: index.php?action=managePost');
+        echo $this->twig->render('create-post.html.twig');
     }
 
     public function managePost()
     {
-        $allPosts = $this->postManager->getAllPosts();
-        try {
-            echo $this->twig->render('manage-post.html.twig', ['allPosts' => $allPosts]);
-        } catch (LoaderError $e) {
-        } catch (RuntimeError $e) {
-        } catch (SyntaxError $e) {
-        }
+        $allPosts = $this->postManager->getPosts();
+        echo $this->twig->render('manage-post.html.twig', ['allPosts' => $allPosts]);
     }
 
     public function modifyPost(int $postId)
@@ -70,24 +57,15 @@ class AdminController
         $post = $this->postManager->getPost($postId);
 
         if ($_POST) {
-            $updatedPost = new Post();
-            $updatedPost->setTitle($_POST['post-title']);
-            $updatedPost->setThumbnail($_POST['post-thumbnail']);
-            $updatedPost->setCategory($_POST['post-category']);
-            $updatedPost->setContent($_POST['post-content']);
-            $updatedPost->setAuthor(1);
-            $updatedPost->setCreatedAt(new \DateTime());
-            $updatedPost->setUpdatedAt(new \DateTime());
-            $this->postManager->updatePost($updatedPost);
+            $post->setTitle($_POST['post-title']);
+            $post->setThumbnail($_POST['post-thumbnail']);
+            $post->setCategory($_POST['post-category']);
+            $post->setContent($_POST['post-content']);
+            $post->setAuthor(1);
+            $post->setUpdatedAt(new \DateTime());
+            $this->postManager->savePost($post);
         }
-        else {
-            try {
-                echo $this->twig->render('modify-post.html.twig', ['post' => $post]);
-            } catch (LoaderError $e) {
-            } catch (RuntimeError $e) {
-            } catch (SyntaxError $e) {
-            }
-        }
+            echo $this->twig->render('modify-post.html.twig', ['post' => $post]);
     }
 
     public function deletePost(int $postId)
