@@ -62,17 +62,41 @@ class PostManager extends Manager
     public function savePost(Post $post)
     {
         //Modifier pour soit insert soit update selon $post->getId()
-        $sendPostRequest = $this->pdo->prepare('
-        INSERT INTO posts (author_id, title, created_at, updated_at, category, content, thumbnail) VALUES (:authorId, :title, :createdAt, :updatedAt, :category, :content, :thumbnail)
+
+        if ($post->getId() === null)
+        {
+            $sendPostRequest = $this->pdo->prepare('
+                INSERT INTO posts 
+                       (author_id, title, created_at, updated_at, category, content, thumbnail) 
+                VALUES (:authorId, :title, :createdAt, :updatedAt, :category, :content, :thumbnail)
         ');
-        $sendPostRequest->execute([
+            $sendPostRequest->execute([
+                'authorId' => $post->getAuthor(),
+                'title' => $post->getTitle(),
+                'createdAt' => $post->getCreatedAt()->format('Y-m-d h:i:s'),
+                'updatedAt' => $post->getUpdatedAt()->format('Y-m-d h:i:s'),
+                'category' => $post->getCategory(),
+                'content' => $post->getContent(),
+                'thumbnail' => $post->getThumbnail()
+            ]);
+        }
+        $updateRequest = $this->pdo->prepare('
+                UPDATE posts
+                SET author_id = :authorId,
+                    title = :title,
+                    updated_at = :updatedAt,
+                    category = :category,
+                    content = :content,
+                    thumbnail = :thumbnail
+                WHERE id = :id');
+        $updateRequest->execute([
             'authorId' => $post->getAuthor(),
             'title' => $post->getTitle(),
-            'createdAt' => $post->getCreatedAt()->format('Y-m-d h:i:s'),
             'updatedAt' => $post->getUpdatedAt()->format('Y-m-d h:i:s'),
             'category' => $post->getCategory(),
             'content' => $post->getContent(),
-            'thumbnail' => $post->getThumbnail()
+            'thumbnail' => $post->getThumbnail(),
+            'id' => $post->getId()
         ]);
     }
 

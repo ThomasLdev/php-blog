@@ -3,9 +3,6 @@
 Namespace App\Controller;
 use App\Manager\PostManager;
 use App\Entity\Post;
-use Twig\Error\LoaderError;
-use Twig\Error\RuntimeError;
-use Twig\Error\SyntaxError;
 
 class AdminController
 {
@@ -20,12 +17,7 @@ class AdminController
 
     public function showAdmin()
     {
-        try {
-            echo $this->twig->render('admin.html.twig');
-        } catch (LoaderError $e) {
-        } catch (RuntimeError $e) {
-        } catch (SyntaxError $e) {
-        }
+        echo $this->twig->render('admin.html.twig');
     }
 
     public function createPost()
@@ -41,7 +33,6 @@ class AdminController
             $createdPost->setUpdatedAt(new \DateTime());
             $this->postManager->savePost($createdPost);
             header('Location: index.php?action=showAdmin');
-
         }
         echo $this->twig->render('create-post.html.twig');
     }
@@ -55,7 +46,6 @@ class AdminController
     public function modifyPost(int $postId)
     {
         $post = $this->postManager->getPost($postId);
-
         if ($_POST) {
             $post->setTitle($_POST['post-title']);
             $post->setThumbnail($_POST['post-thumbnail']);
