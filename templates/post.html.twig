@@ -1,0 +1,29 @@
+{% extends "base-page.html.twig" %}
+
+{% block headerTitle %}{{ post.title }}{% endblock %}
+{% block headerSubtitle %}
+        <h2 class="subheading">Catégorie : {{ post.category }}</h2>
+        publié par <a href="#">{{ post.author }}</a> le <em>{{ post.created_at|date("d/m/Y") }}</em>
+{% endblock %}
+{% block headerURL %} '../public/img/header-single2.jpg' {% endblock %}
+
+{% block content %}
+    <article>
+        <div class="container">
+            <div class="row">
+                    <img class="post-thumbnail" src="{{ post.thumbnail }}" alt="post image"/>
+                    <!-- Mettre l'image en variable twig et stocker sa reference en base, réhydrater et tout -->
+                <div class="col-12 p-0">
+                    <p class="text-justify">
+                        {{ post.content }}
+                    </p>
+                    <p class="text-justify">Ces articles ont été récupéré sur différents blogs et ne m'appartiennent pas, ils sont là à titre d'exemple pendant le développement du site.</p>
+                    <p class="post-meta">Mis à jour
+                        le <em>{{ post.updated_at|date("d/m/Y") }}</em>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </article>
+{% endblock %}
+

@@ -1,0 +1,27 @@
+{% extends "base-admin.html.twig" %}
+
+                    {% block content %}
+                        <form method="post" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="post-title">Titre de l'article</label>
+                                <input type="text" class="form-control" name="post-title" id="post-title" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="post-thumbnail">Chemin vers l'image</label>
+                                <input type="text" class="form-control" name="post-thumbnail" id="post-thumbnail" placeholder="..public/img/image.jpg">
+                            </div>
+                            <div class="form-group">
+                                <label for="post-category">Catégorie</label>
+                                <input type="text" class="form-control" name="post-category" id="post-category">
+                            </div>
+                            <div class="form-group">
+                                <label for="post-content">Corps de l'article</label>
+                                <textarea class="form-control" name="post-content" id="post-content" rows="15"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary p-3">Poster l'article</button>
+
+                        </form>
+                    {% endblock %}
+
+
+

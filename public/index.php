@@ -1,17 +1,36 @@
 <?php
 
-require('../src/controller/frontend.php');
+require __DIR__ . '/../vendor/autoload.php';
 
-if (isset($_GET['action'])) {
-    if ($_GET['action'] === 'listPosts'){
-        listPosts();
+use App\Controller\AdminController;
+use App\Controller\FrontendController;
+use App\Manager\PostManager;
+use Twig\Environment;
+use Twig\Loader\FilesystemLoader;
+
+$loader = new FilesystemLoader(__DIR__ .'/../templates');
+$twig = new Environment($loader);
+
+$pdo = new PDO('mysql:host=localhost;dbname=blog;charset=utf8', 'root', '');
+$postManager = new PostManager($pdo);
+
+$frontController = new FrontendController($twig, $postManager);
+$adminController = new AdminController($twig, $postManager);
+
+    $action = isset($_GET['action']) ? $_GET['action'] : null;
+    switch ($action) {
+        case "listPosts":
+            $frontController->listPosts();
+            break;
+        case "showPost" :
+            $frontController->showPost($_GET['id']);
+            break;
+        case "showAdmin":
+            $adminController->showAdmin();
+            break;
+        case "createPost":
+            $adminController->createPost();
+            break;
+        default:
+            $frontController->listPosts();
     }
-    elseif ($_GET['action'] === 'showPost') {
-        showPost();
-    }
-    else {
-        echo 'Post ID is uncorrect. Please don\'t change any value directly in the address bar;';
-    }
-} else {
-    listPosts();
-}
