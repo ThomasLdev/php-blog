@@ -1,0 +1,16 @@
+
+{% for comment in comments %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <p>{{ comment.title }}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <p>{{ comment.content }}</p>
+        </div>
+    </div>
+</div>
+<hr />
+{% endfor %}

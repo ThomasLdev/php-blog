@@ -2,13 +2,15 @@
 
 Namespace App\Entity;
 
+use DateTime;
+
 class Post
 {
     private ?int $id = null;
     private ?string $author = null;
     private ?string $title = null;
-    private ?\DateTime $created_at = null;
-    private ?\DateTime $updated_at = null;
+    private ?DateTime $created_at = null;
+    private ?DateTime $updated_at = null;
     private ?string $category = null;
     private ?string $content = null;
     private ?string $thumbnail = null;
@@ -28,12 +30,12 @@ class Post
         return $this->title;
     }
 
-    public function getCreatedAt(): \DateTime
+    public function getCreatedAt(): DateTime
     {
         return $this->created_at;
     }
 
-    public function getUpdatedAt(): \DateTime
+    public function getUpdatedAt(): DateTime
     {
         return $this->updated_at;
     }
@@ -68,12 +70,12 @@ class Post
         $this->title = $title;
     }
 
-    public function setCreatedAt(\DateTime $created_at)
+    public function setCreatedAt(DateTime $created_at)
     {
         $this->created_at = $created_at;
     }
 
-    public function setUpdatedAt(\DateTime $updated_at)
+    public function setUpdatedAt(DateTime $updated_at)
     {
         $this->updated_at = $updated_at;
     }

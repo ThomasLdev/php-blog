@@ -1,21 +1,22 @@
 <?php
 
 Namespace App\Controller;
+
 use App\Manager\PostManager;
-use Twig\Error\LoaderError;
-use Twig\Error\RuntimeError;
-use Twig\Error\SyntaxError;
+use App\Manager\CommentManager;
+use Twig\Environment;
 
 class FrontendController
 {
-    private \Twig\Environment $twig;
-
+    private Environment $twig;
     private PostManager $postManager;
+    private CommentManager $commentManager;
 
-    public function __construct(\Twig\Environment $twig, PostManager $postManager)
+    public function __construct(Environment $twig, PostManager $postManager, CommentManager $commentManager)
     {
         $this->twig = $twig;
         $this->postManager = $postManager;
+        $this->commentManager = $commentManager;
     }
 
     public function listPosts()
@@ -27,7 +28,7 @@ class FrontendController
     public function showPost(int $postId)
     {
         $post = $this->postManager->getPost($postId);
-        echo $this->twig->render('post.html.twig', ['post' => $post]);
+        $comments = $this->commentManager->getPostComments($post);
+        echo $this->twig->render('post.html.twig', ['post' => $post, 'comments' => $comments], );
     }
 }
-
