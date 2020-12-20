@@ -8,10 +8,15 @@ class Comment
 {
     private ?int $id = null;
     private ?int $post_id = null;
-    private ?int $author_comment_id = null;
-    private ?string $title = null;
+    private ?int $author_comment = null;
     private ?DateTime $created_at = null;
     private ?string $content = null;
+    private ?int $status = 0;
+
+    public function __construct()
+    {
+        $this->created_at = new DateTime();
+    }
 
     public function getId(): ?int
     {
@@ -23,14 +28,9 @@ class Comment
         return $this->post_id;
     }
 
-    public function getAuthorCommentId(): ?int
+    public function getAuthorComment(): ?int
     {
-        return $this->author_comment_id;
-    }
-
-    public function getTitle(): ?string
-    {
-        return $this->title;
+        return $this->author_comment;
     }
 
     public function getCreatedAt(): DateTime
@@ -43,6 +43,11 @@ class Comment
         return $this->content;
     }
 
+    public function getStatus(): ?int
+    {
+        return $this->status;
+    }
+
     public function setId(int $id)
     {
         $this->id = $id;
@@ -53,14 +58,9 @@ class Comment
         $this->post_id = $post_id;
     }
 
-    public function setAuthorCommentId(int $author_comment_id)
+    public function setAuthorComment(int $author_comment)
     {
-        $this->author_comment_id = $author_comment_id;
-    }
-
-    public function setTitle(string $title)
-    {
-        $this->title = $title;
+        $this->author_comment = $author_comment;
     }
 
     public function setCreatedAt(DateTime $created_at)
@@ -71,5 +71,10 @@ class Comment
     public function setContent(string $content)
     {
         $this->content = $content;
+    }
+
+    public function setStatus(int $status)
+    {
+        $this->status = $status;
     }
 }

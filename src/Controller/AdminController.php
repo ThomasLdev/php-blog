@@ -3,6 +3,7 @@
 Namespace App\Controller;
 use App\Manager\PostManager;
 use App\Entity\Post;
+use App\Manager\CommentManager;
 use DateTime;
 use Twig\Environment;
 
@@ -10,16 +11,21 @@ class AdminController
 {
     private Environment $twig;
     private PostManager $postManager;
+    private CommentManager $commentManager;
 
-    public function __construct(Environment $twig, PostManager $postManager)
+    public function __construct(Environment $twig, PostManager $postManager, CommentManager $commentManager)
     {
         $this->twig = $twig;
         $this->postManager = $postManager;
+        $this->commentManager= $commentManager;
     }
 
     public function showAdmin()
     {
-        echo $this->twig->render('admin.html.twig');
+        $allComments = $this->commentManager->getAllComments();
+        $posts = $this->postManager->getPosts(PostManager::POST_LIMIT);
+        $allPosts = $this->postManager->getPosts();
+        echo $this->twig->render('admin.html.twig', ['posts' => $posts, 'allPosts' => $allPosts, '$allComments' => $allComments]);
     }
 
     public function createPost()
@@ -31,8 +37,6 @@ class AdminController
             $createdPost->setCategory($_POST['post-category']);
             $createdPost->setContent($_POST['post-content']);
             $createdPost->setAuthor(1);
-            $createdPost->setCreatedAt(new DateTime());
-            $createdPost->setUpdatedAt(new DateTime());
             $this->postManager->savePost($createdPost);
             header('Location: index.php?action=showAdmin');
         }

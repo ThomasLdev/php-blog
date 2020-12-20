@@ -37,4 +37,26 @@
     color: #0085a1 !important;
 }
 
+.comment-container{
+    background-color: lightgrey;
+}
 
+.comment-author{
+    text-decoration: underline;
+    color: #0c5460;
+}
+
+.avatar-img{
+    max-width: 50px;
+    height: auto;
+}
+
+.comment-answer{
+    position: absolute;
+    bottom: -10px;
+    right: -10px;
+}
+
+.row-content{
+    position: relative;
+}

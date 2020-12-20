@@ -20,7 +20,7 @@ $postManager = new PostManager($pdo);
 $commentManager = new CommentManager($pdo);
 
 $frontController = new FrontendController($twig, $postManager, $commentManager);
-$adminController = new AdminController($twig, $postManager);
+$adminController = new AdminController($twig, $postManager, $commentManager);
 
     $action = isset($_GET['action']) ? $_GET['action'] : null;
     switch ($action) {

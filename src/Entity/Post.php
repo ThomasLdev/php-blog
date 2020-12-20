@@ -15,6 +15,12 @@ class Post
     private ?string $content = null;
     private ?string $thumbnail = null;
 
+    public function __construct()
+    {
+        $this->created_at = new DateTime();
+        $this->updated_at = new DateTime();
+    }
+
     public function getId(): ?int
     {
         return $this->id;

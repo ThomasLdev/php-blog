@@ -63,8 +63,6 @@ class PostManager extends Manager
 
     public function savePost(Post $post)
     {
-        //Modifier pour soit insert soit update selon $post->getId()
-
         if ($post->getId() === null)
         {
             $sendPostRequest = $this->pdo->prepare('
@@ -119,6 +117,7 @@ class PostManager extends Manager
         $post->setCategory($postSQL['post_category']);
         $post->setContent($postSQL['post_content']);
         $post->setThumbnail($postSQL['post_thumbnail']);
+        //var_dump($post); die();
         return $post;
     }
 }

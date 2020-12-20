@@ -1,16 +1,29 @@
-
 {% for comment in comments %}
-<div class="container-fluid">
+    {% if comment.status != 0 %}
+<div class="container comment-container mb-5">
     <div class="row">
-        <div class="col-12">
-            <p>{{ comment.title }}</p>
+        <div class="col-8 d-flex justify-content-start align-items-center">
+            <div class="avatar">
+                <img class="avatar-img" src="../public/img/avatars/tlefebvre.png" alt="{{ comment.author }}">
+            </div>
+            <p class="pl-2"><span class="comment-author">{{ comment.author }}Thomas</span></p>
+        </div>
+        <div class="col-4">
+            <p class="text-right pr-3">
+                le
+                {{ comment.date|date("d/m/Y")  }}
+            </p>
         </div>
     </div>
-    <div class="row">
+    <hr class="m-0" />
+    <div class="row row-content">
         <div class="col-12">
-            <p>{{ comment.content }}</p>
+            <p class="pl-3">{{ comment.content }}</p>
+        </div>
+        <div class="comment-answer">
+            <a class="btn bg-primary" href="">Répondre</a>
         </div>
     </div>
 </div>
-<hr />
+    {% endif %}
 {% endfor %}
