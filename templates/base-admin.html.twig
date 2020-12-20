@@ -11,6 +11,7 @@
         <link href="../vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
         <link href="../vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
         <link href="../vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
         <!-- Bootstrap CSS-->
         <link href="../public/css/bootstrap.min.css" rel="stylesheet" media="all">
         <!-- Vendor CSS-->
@@ -51,13 +52,10 @@
                                 <i class="fas fa-newspaper"></i>Articles</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                                 <li>
-                                    <a href="#">Créer un article</a>
+                                    <a href="../public/index.php?action=createPost">Créer un article</a>
                                 </li>
                                 <li>
-                                    <a href="#">Modifier un article</a>
-                                </li>
-                                <li>
-                                    <a href="#">Supprimer un article</a>
+                                    <a href="#">Modérer les articles</a>
                                 </li>
                             </ul>
                         </li>
@@ -83,10 +81,7 @@
                                     <a href="#">Ajouter un utilisateur</a>
                                 </li>
                                 <li>
-                                    <a href="#">Modifier un utilisateur</a>
-                                </li>
-                                <li>
-                                    <a href="#">Supprimer un utilisateur</a>
+                                    <a href="#">Modérer les utilisateurs</a>
                                 </li>
                             </ul>
                         </li>
@@ -122,10 +117,7 @@
                                     <a href="../public/index.php?action=createPost">Créer un article</a>
                                 </li>
                                 <li>
-                                    <a href="#">Modifier un article</a>
-                                </li>
-                                <li>
-                                    <a href="#">Supprimer un article</a>
+                                    <a href="../public/index.php?action=managePost">Modérer les articles</a>
                                 </li>
                             </ul>
                         </li>
@@ -172,7 +164,9 @@
                     <div class="container-fluid">
                         <div class="header-wrap">
                             <form class="form-header" action="" method="POST">
-                                <input class="au-input au-input--xl" type="text" name="search" placeholder="Search for datas &amp; reports..." />
+                                <label>
+                                    <input class="au-input au-input--xl" type="text" name="search" placeholder="Search for datas &amp; reports..." />
+                                </label>
                                 <button class="au-btn--submit" type="submit">
                                     <i class="zmdi zmdi-search"></i>
                                 </button>

@@ -31,6 +31,17 @@ $adminController = new AdminController($twig, $postManager);
         case "createPost":
             $adminController->createPost();
             break;
+        case "managePost":
+            $adminController->managePost();
+            break;
+        case "modifyPost":
+            $postId = $_GET['id'];
+            $adminController->modifyPost($postId);
+            break;
+        case "deletePost":
+            $postId = $_GET['id'];
+            $adminController->deletePost($postId);
+            break;
         default:
             $frontController->listPosts();
     }

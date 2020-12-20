@@ -5,10 +5,11 @@ use App\Entity\Post;
 
 class PostManager extends Manager
 {
-    public function getPosts(): array
+    const POST_LIMIT = 5;
+
+    public function getPosts(int $limit = null): array
     {
-        $lastPostsRequest = $this->pdo->query('
-        SELECT     p.id "post_id",
+        $request = 'SELECT     p.id "post_id",
                    p.title "post_title",
                    p.created_at "post_date",
                    p.updated_at "post_update",
@@ -18,8 +19,18 @@ class PostManager extends Manager
                    u.first_name "post_author"
                    FROM posts p
                    JOIN user u on p.author_id = u.id
-                   ORDER BY p.created_at DESC LIMIT 0, 5;
-        ');
+                   ORDER BY p.created_at DESC';
+        if ($limit) {
+            $request .= ' LIMIT 0, :limit';
+        }
+
+        $lastPostsRequest = $this->pdo->prepare($request);
+
+        if ($limit) {
+            $lastPostsRequest->bindValue(':limit', $limit, \PDO::PARAM_INT);
+        }
+
+        $lastPostsRequest->execute();
         $postsSQL = $lastPostsRequest->fetchAll();
         $posts = [];
         foreach ($postsSQL as $postSQL)
@@ -43,25 +54,56 @@ class PostManager extends Manager
                    FROM posts p
                    JOIN user u on p.author_id = u.id
                    WHERE p.id = :id');
-        $singlePostRequest->execute(array('id' => $postId));
+        $singlePostRequest->execute(['id' => $postId]);
         $postSql = $singlePostRequest->fetch();
         return $this->hydratePost($postSql);
     }
 
     public function savePost(Post $post)
     {
-        $sendPostRequest = $this->pdo->prepare('
-        INSERT INTO posts (author_id, title, created_at, updated_at, category, content, thumbnail) VALUES (:authorId, :title, :createdAt, :updatedAt, :category, :content, :thumbnail)
+        //Modifier pour soit insert soit update selon $post->getId()
+
+        if ($post->getId() === null)
+        {
+            $sendPostRequest = $this->pdo->prepare('
+                INSERT INTO posts 
+                       (author_id, title, created_at, updated_at, category, content, thumbnail) 
+                VALUES (:authorId, :title, :createdAt, :updatedAt, :category, :content, :thumbnail)
         ');
-        $sendPostRequest->execute([
+            $sendPostRequest->execute([
+                'authorId' => $post->getAuthor(),
+                'title' => $post->getTitle(),
+                'createdAt' => $post->getCreatedAt()->format('Y-m-d h:i:s'),
+                'updatedAt' => $post->getUpdatedAt()->format('Y-m-d h:i:s'),
+                'category' => $post->getCategory(),
+                'content' => $post->getContent(),
+                'thumbnail' => $post->getThumbnail()
+            ]);
+        }
+        $updateRequest = $this->pdo->prepare('
+                UPDATE posts
+                SET author_id = :authorId,
+                    title = :title,
+                    updated_at = :updatedAt,
+                    category = :category,
+                    content = :content,
+                    thumbnail = :thumbnail
+                WHERE id = :id');
+        $updateRequest->execute([
             'authorId' => $post->getAuthor(),
             'title' => $post->getTitle(),
-            'createdAt' => $post->getCreatedAt()->format('Y-m-d h:i:s'),
             'updatedAt' => $post->getUpdatedAt()->format('Y-m-d h:i:s'),
             'category' => $post->getCategory(),
             'content' => $post->getContent(),
-            'thumbnail' => $post->getThumbnail()
+            'thumbnail' => $post->getThumbnail(),
+            'id' => $post->getId()
         ]);
+    }
+
+    public function deletePost(int $postId)
+    {
+        $singlePostRequest = $this->pdo->prepare('DELETE FROM posts WHERE id = :id');
+        $singlePostRequest->execute(array('id' => $postId));
     }
 
     private function hydratePost(array $postSQL): Post

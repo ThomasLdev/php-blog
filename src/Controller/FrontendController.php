@@ -20,24 +20,14 @@ class FrontendController
 
     public function listPosts()
     {
-        $posts = $this->postManager->getPosts();
-        try {
-            echo $this->twig->render('home.html.twig', ['posts' => $posts]);
-        } catch (LoaderError $e) {
-        } catch (RuntimeError $e) {
-        } catch (SyntaxError $e) {
-        }
+        $posts = $this->postManager->getPosts(PostManager::POST_LIMIT);
+        echo $this->twig->render('home.html.twig', ['posts' => $posts]);
     }
 
     public function showPost(int $postId)
     {
         $post = $this->postManager->getPost($postId);
-        try {
-            echo $this->twig->render('post.html.twig', ['post' => $post]);
-        } catch (LoaderError $e) {
-        } catch (RuntimeError $e) {
-        } catch (SyntaxError $e) {
-        }
+        echo $this->twig->render('post.html.twig', ['post' => $post]);
     }
 }
 

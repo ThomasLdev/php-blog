@@ -1,0 +1,63 @@
+{% extends "base-admin.html.twig" %}
+
+{% block content %}
+    <div class="container-fluid">
+
+        <div class="row justify-content-center align-items-center p-2 d-lg-flex d-md-none">
+            <div class="col-lg-2 text-center">
+                <p>Thumbnail</p>
+            </div>
+            <div class="col-lg-3 text-center">
+                <p>Titre</p>
+            </div>
+            <div class="col-lg-2 text-center">
+                <p>Date Création</p>
+            </div>
+            <div class="col-lg-2 text-center">
+                <p>Date Update</p>
+            </div>
+            <div class="col-lg-2 text-center">
+                <p>Auteur</p>
+            </div>
+            <div class="col-lg-1 text-center">
+                <p>Action</p>
+            </div>
+        </div>
+
+        <div class="row d-lg-flex d-md-none d-sm-none">
+            <div class="col-12">
+                <hr />
+            </div>
+        </div>
+
+        {% for allPost in allPosts %}
+            <div class="row justify-content-center align-items-center p-2">
+                <div class="col-lg-2 text-center">
+                    <img class="post-thumbnail" src="{{ allPost.thumbnail }}" alt="post image"/>
+                </div>
+                <div class="col-lg-3 text-center">
+                    {{ allPost.title }}
+                </div>
+                <div class="col-lg-2 text-center">
+                    {{ allPost.created_at|date("d/m/Y") }}
+                </div>
+                <div class="col-lg-2 text-center">
+                    {{ allPost.updated_at|date("d/m/Y") }}
+                </div>
+                <div class="col-lg-2 text-center">
+                    {{ allPost.author }}
+                </div>
+                <div class="col-lg-1 text-center">
+                    <div class="row text-center justify-content-center align-items-center p-2">
+                        <a class="btn btn-primary" href="../public/index.php?action=modifyPost&amp;id={{ allPost.id }}"><i class="fas fa-tools"></i></a>
+                    </div>
+                    <div class="row text-center justify-content-center align-items-center p-2">
+                        <a href="../public/index.php?action=deletePost&amp;id={{ allPost.id }}" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                        {# <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-trash-alt"></i></button> #}
+                    </div>
+                </div>
+            </div>
+            <hr />
+        {% endfor %}
+    </div>
+{% endblock %}
