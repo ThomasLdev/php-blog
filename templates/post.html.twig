@@ -2,8 +2,8 @@
 
 {% block headerTitle %}{{ post.title }}{% endblock %}
 {% block headerSubtitle %}
-        <h2 class="subheading">Catégorie : {{ post.category }}</h2>
-        publié par <a href="#">{{ post.author }}</a> le <em>{{ post.created_at|date("d/m/Y") }}</em>
+    <h2 class="subheading">Catégorie : {{ post.category }}</h2>
+    publié par <a href="#">{{ post.author }}</a> le <em>{{ post.createdAt|date("d/m/Y") }}</em>
 {% endblock %}
 {% block headerURL %} '../public/img/header-single2.jpg' {% endblock %}
 
@@ -11,19 +11,61 @@
     <article>
         <div class="container">
             <div class="row">
-                    <img class="post-thumbnail" src="{{ post.thumbnail }}" alt="post image"/>
-                    <!-- Mettre l'image en variable twig et stocker sa reference en base, réhydrater et tout -->
+                <img class="post-thumbnail" src="{{ post.thumbnail }}" alt="post image"/>
                 <div class="col-12 p-0">
                     <p class="text-justify">
                         {{ post.content }}
                     </p>
-                    <p class="text-justify">Ces articles ont été récupéré sur différents blogs et ne m'appartiennent pas, ils sont là à titre d'exemple pendant le développement du site.</p>
-                    <p class="post-meta">Mis à jour
-                        le <em>{{ post.updated_at|date("d/m/Y") }}</em>
+                    <p class="text-justify">Cet article a été récupéré sur différents blogs et ne m'appartient pas, il
+                        est là à titre d'exemple pendant le développement du site.</p>
+                    <p class="post-meta text-right">Mis à jour
+                        le <em>{{ post.updatedAt|date("d/m/Y") }}</em>
                     </p>
                 </div>
             </div>
         </div>
     </article>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12 p-0">
+                <p class="text-start">
+                    Réagir à cet article :
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <!-- POST COMMENT -->
+            <form method="post" enctype="multipart/form-data" style="width: 100%">
+                <div class="group-form d-flex flex-column">
+                    <label for="comment-author-name">Votre nom</label>
+                    <input type="text" id="comment-author-name" name="comment-author-name" style="width: 30%">
+                </div>
+                <div class="group-form d-flex flex-column">
+                    <label for="comment-message">Votre message</label>
+                    <textarea type="text" id="comment-message" name="comment-message"></textarea>
+                </div>
+                <div class="group-form mt-3">
+                    <button class="btn bg-primary" type="submit">Poster</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+    {% if comments|length != 0 %}
+        <div class="container">
+            <div class="row">
+                <div class="col-12 p-0">
+                    <p class="text-start">
+                        Commentaires :
+                    </p>
+                </div>
+            </div>
+        </div>
+        {% include 'comment.html.twig' %}
+    {% endif %}
 {% endblock %}
+
+
 

@@ -2,6 +2,8 @@
 
 namespace App\Manager;
 use App\Entity\Post;
+use DateTime;
+use PDO;
 
 class PostManager extends Manager
 {
@@ -27,7 +29,7 @@ class PostManager extends Manager
         $lastPostsRequest = $this->pdo->prepare($request);
 
         if ($limit) {
-            $lastPostsRequest->bindValue(':limit', $limit, \PDO::PARAM_INT);
+            $lastPostsRequest->bindValue(':limit', $limit, PDO::PARAM_INT);
         }
 
         $lastPostsRequest->execute();
@@ -61,8 +63,6 @@ class PostManager extends Manager
 
     public function savePost(Post $post)
     {
-        //Modifier pour soit insert soit update selon $post->getId()
-
         if ($post->getId() === null)
         {
             $sendPostRequest = $this->pdo->prepare('
@@ -112,12 +112,11 @@ class PostManager extends Manager
         $post->setId($postSQL['post_id']);
         $post->setAuthor($postSQL['post_author']);
         $post->setTitle($postSQL['post_title']);
-        $post->setCreatedAt((new \DateTime($postSQL['post_date'])));
-        $post->setUpdatedAt((new \DateTime($postSQL['post_update'])));
+        $post->setCreatedAt((new DateTime($postSQL['post_date'])));
+        $post->setUpdatedAt((new DateTime($postSQL['post_update'])));
         $post->setCategory($postSQL['post_category']);
         $post->setContent($postSQL['post_content']);
         $post->setThumbnail($postSQL['post_thumbnail']);
         return $post;
     }
 }
-

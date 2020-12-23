@@ -52,12 +52,13 @@
                         <a class="btn btn-primary" href="../public/index.php?action=modifyPost&amp;id={{ allPost.id }}"><i class="fas fa-tools"></i></a>
                     </div>
                     <div class="row text-center justify-content-center align-items-center p-2">
-                        <a href="../public/index.php?action=deletePost&amp;id={{ allPost.id }}" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
-                        {# <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-trash-alt"></i></button> #}
+                        <a href="../public/index.php?action=deletePost&amp;id={{ allPost.id }}" onclick="return confirm('Voulez-vous vraiment supprimer ce post ?')" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
                     </div>
                 </div>
             </div>
             <hr />
         {% endfor %}
+
     </div>
 {% endblock %}
+
