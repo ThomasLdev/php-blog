@@ -117,7 +117,6 @@ class PostManager extends Manager
         $post->setCategory($postSQL['post_category']);
         $post->setContent($postSQL['post_content']);
         $post->setThumbnail($postSQL['post_thumbnail']);
-        //var_dump($post); die();
         return $post;
     }
 }

@@ -9,6 +9,7 @@ class CommentManager extends Manager
 {
     public function getAllComments(): array
     {
+
         $request = $this->pdo->prepare('
         SELECT     c.id "comment_id",
                    c.post_id "post_id",
@@ -17,15 +18,17 @@ class CommentManager extends Manager
                    c.content "comment_content",
                    c.status "comment_status"
                    FROM comment c
+                   WHERE c.status = 0   
         ');
         $request->execute();
         $commentsSQL = $request->fetchAll();
-        $allComments = [];
+        $comments = [];
         foreach ($commentsSQL as $commentSQL)
         {
             $comments[] = $this->hydrateComment($commentSQL);
         }
-        return $allComments;
+        return $comments;
+
     }
 
     public function getPostComments(Post $post): array
@@ -56,11 +59,29 @@ class CommentManager extends Manager
     {
         $sendCommentRequest = $this->pdo->prepare('
                 INSERT INTO comment 
-                       (author_comment, content) 
-                VALUES (:authorId, :content)
+                       (author_comment, created_at,  content, status, post_id) 
+                VALUES (:author, :createdAt, :content, :status, :postId)
         ');
+        $sendCommentRequest->execute([
+            'author' => $comment->getAuthorComment(),
+            'createdAt' => $comment->getCreatedAt()->format('Y-m-d h:i:s'),
+            'content' => $comment->getContent(),
+            'status' => $comment->getStatus(),
+            'postId' => $comment->getPostId()
+        ]);
     }
 
+    public function deleteComment(int $commentId)
+    {
+        $request = $this->pdo->prepare('DELETE FROM comment WHERE id = :id');
+        $request->execute(array('id' => $commentId));
+    }
+
+    public function validateComment(int $commentId)
+    {
+        $request = $this->pdo->prepare('UPDATE comment SET status = 1 WHERE id = :id');
+        $request->execute(['id' => $commentId]);
+    }
 
     private function hydrateComment(array $commentSQL): Comment
     {

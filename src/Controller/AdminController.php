@@ -49,6 +49,12 @@ class AdminController
         echo $this->twig->render('manage-post.html.twig', ['allPosts' => $allPosts]);
     }
 
+    public function manageComment()
+    {
+        $allComments = $this->commentManager->getAllComments();
+        echo $this->twig->render('manage-comment.html.twig', ['allComments' => $allComments]);
+    }
+
     public function modifyPost(int $postId)
     {
         $post = $this->postManager->getPost($postId);
@@ -69,5 +75,17 @@ class AdminController
     {
         $this->postManager->deletePost($postId);
         header('Location: index.php?action=managePost');
+    }
+
+    public function validateComment(int $commentId)
+    {
+        $this->commentManager->validateComment($commentId);
+        header('Location: index.php?action=manageComment');
+    }
+
+    public function deleteComment(int $commentId)
+    {
+        $this->commentManager->deleteComment($commentId);
+        header('Location: index.php?action=manageComment');
     }
 }

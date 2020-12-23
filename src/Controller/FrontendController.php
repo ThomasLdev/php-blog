@@ -35,7 +35,6 @@ class FrontendController
             $comment->setAuthorComment(1);
             $comment->setContent($_POST['comment-message']);
             $comment->setPostId($post->getId());
-            //var_dump($comment); die();
             $this->commentManager->saveComment($comment);
         }
         $comments = $this->commentManager->getPostComments($post);

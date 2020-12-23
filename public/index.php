@@ -47,6 +47,16 @@ $adminController = new AdminController($twig, $postManager, $commentManager);
             $postId = $_GET['id'];
             $adminController->deletePost($postId);
             break;
+        case "deleteComment":
+            $commentId = $_GET['id'];
+            $adminController->deleteComment($commentId);
+            break;
+        case "validateComment":
+            $commentId = $_GET['id'];
+            $adminController->validateComment($commentId);
+        case "manageComment":
+            $adminController->manageComment();
+            break;
         default:
             $frontController->listPosts();
     }
