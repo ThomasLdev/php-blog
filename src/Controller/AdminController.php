@@ -22,10 +22,10 @@ class AdminController
 
     public function showAdmin()
     {
-        $allComments = $this->commentManager->getAllComments();
+        $allValidatedComments = $this->commentManager->getValidatedComments();
         $posts = $this->postManager->getPosts(PostManager::POST_LIMIT);
         $allPosts = $this->postManager->getPosts();
-        echo $this->twig->render('admin.html.twig', ['posts' => $posts, 'allPosts' => $allPosts, '$allComments' => $allComments]);
+        echo $this->twig->render('admin.html.twig', ['posts' => $posts, 'allPosts' => $allPosts, 'allValidatedComments' => $allValidatedComments]);
     }
 
     public function createPost()

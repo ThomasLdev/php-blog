@@ -9,7 +9,6 @@ class CommentManager extends Manager
 {
     public function getAllComments(): array
     {
-
         $request = $this->pdo->prepare('
         SELECT     c.id "comment_id",
                    c.post_id "post_id",
@@ -28,6 +27,29 @@ class CommentManager extends Manager
             $comments[] = $this->hydrateComment($commentSQL);
         }
         return $comments;
+    }
+
+    public function getValidatedComments(): array
+    {
+
+        $request = $this->pdo->prepare('
+        SELECT     c.id "comment_id",
+                   c.post_id "post_id",
+                   c.author_comment "comment_author",
+                   c.created_at "comment_date",
+                   c.content "comment_content",
+                   c.status "comment_status"
+                   FROM comment c
+                   WHERE c.status = 1   
+        ');
+        $request->execute();
+        $commentsSQL = $request->fetchAll();
+        $validatedComments = [];
+        foreach ($commentsSQL as $commentSQL)
+        {
+            $validatedComments[] = $this->hydrateComment($commentSQL);
+        }
+        return $validatedComments;
 
     }
 

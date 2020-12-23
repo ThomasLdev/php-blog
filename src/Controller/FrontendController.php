@@ -40,4 +40,12 @@ class FrontendController
         $comments = $this->commentManager->getPostComments($post);
         echo $this->twig->render('post.html.twig', ['post' => $post, 'comments' => $comments], );
     }
+
+    public function register()
+    {
+        if ($_POST) {
+            echo 'attend, ça arrive';
+        }
+        echo $this->twig->render('register.html.twig');
+    }
 }

@@ -54,8 +54,12 @@ $adminController = new AdminController($twig, $postManager, $commentManager);
         case "validateComment":
             $commentId = $_GET['id'];
             $adminController->validateComment($commentId);
+            break;
         case "manageComment":
             $adminController->manageComment();
+            break;
+        case "register":
+            $frontController->register();
             break;
         default:
             $frontController->listPosts();

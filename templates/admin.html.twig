@@ -25,7 +25,7 @@
                                                 <i class="fas fa-comments"></i>
                                             </div>
                                             <div class="text">
-                                                <h2>{{ allComments|length }}</h2>
+                                                <h2>{{ allValidatedComments|length }}</h2>
 
                                                 <span>commentaires postés</span>
                                             </div>
@@ -114,7 +114,7 @@
                                             <div class="au-message__noti">
                                             </div>
                                             <div class="au-message-list">
-                                                {% for comment in Allcomments %}
+                                                {% for comment in allValidatedComments %}
                                                 <div class="au-message__item unread">
                                                     <div class="au-message__item-inner">
                                                         <div class="au-message__item-text">

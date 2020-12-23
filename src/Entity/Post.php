@@ -9,8 +9,8 @@ class Post
     private ?int $id = null;
     private ?string $author = null;
     private ?string $title = null;
-    private ?DateTime $created_at = null;
-    private ?DateTime $updated_at = null;
+    private ?DateTime $created_at;
+    private ?DateTime $updated_at;
     private ?string $category = null;
     private ?string $content = null;
     private ?string $thumbnail = null;
