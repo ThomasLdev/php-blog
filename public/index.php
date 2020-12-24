@@ -6,6 +6,7 @@ use App\Controller\AdminController;
 use App\Controller\FrontendController;
 use App\Manager\CommentManager;
 use App\Manager\PostManager;
+use App\Manager\UserManager;
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
 use Twig\Extension\DebugExtension;
@@ -18,8 +19,9 @@ $twig->addExtension(new DebugExtension());
 $pdo = new PDO('mysql:host=localhost;dbname=blog;charset=utf8', 'root', '');
 $postManager = new PostManager($pdo);
 $commentManager = new CommentManager($pdo);
+$userManager = new UserManager($pdo);
 
-$frontController = new FrontendController($twig, $postManager, $commentManager);
+$frontController = new FrontendController($twig, $postManager, $commentManager, $userManager);
 $adminController = new AdminController($twig, $postManager, $commentManager);
 
     $action = isset($_GET['action']) ? $_GET['action'] : null;

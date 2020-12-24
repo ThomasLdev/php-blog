@@ -144,24 +144,23 @@ img::-moz-selection {
         position: fixed;
         top: -67px;
         transition: transform .2s;
-        border-bottom: 1px solid #fff;
-        background-color: rgba(255, 255, 255, .9)
+        background-color: black;
     }
 
     #mainNav.is-fixed .navbar-brand {
-        color: #212529
+        color: white;
     }
 
     #mainNav.is-fixed .navbar-brand:focus, #mainNav.is-fixed .navbar-brand:hover {
-        color: #0085a1
+        color: white;
     }
 
     #mainNav.is-fixed .navbar-nav > li.nav-item > a {
-        color: #212529
+        color: white;
     }
 
     #mainNav.is-fixed .navbar-nav > li.nav-item > a:focus, #mainNav.is-fixed .navbar-nav > li.nav-item > a:hover {
-        color: #0085a1
+        color: #17a2b8;
     }
 
     #mainNav.is-visible {

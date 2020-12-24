@@ -20,16 +20,23 @@
 
 <body class="text-center">
 
-<form class="form-signin">
+<a href="../public/index.php" type="button" class="btn btn-lg btn-danger" style="position: absolute; top: 0; left: 0;"><i class="fas fa-arrow-circle-left fa-2x"></i></a>
+
+<form class="form-signin" method="post">
     <h1 class="h3 mb-3 font-weight-normal">Veuillez entrer les informations suivantes</h1>
+
     <label for="inputFirstName" class="sr-only">Prénom</label>
-    <input type="text" id="inputEmail" class="form-control p-6 mb-2" placeholder="Prénom" required="" autofocus="">
-    <label for="inputLastName" class="sr-only">Prénom</label>
-    <input type="text" id="inputEmail" class="form-control p-6 mb-2" placeholder="Nom de famille" required="" autofocus="">
+    <input type="text" id="inputFirstName" name="first_name" class="form-control p-6 mb-2" placeholder="Prénom" required="" autofocus="">
+
+    <label for="inputLastName" class="sr-only">Nom de famille</label>
+    <input type="text" id="inputLastName" name="last_name" class="form-control p-6 mb-2" placeholder="Nom de famille" required="" autofocus="">
+
     <label for="inputEmail" class="sr-only">Email address</label>
-    <input type="email" id="inputEmail" class="form-control p-6 mb-2" placeholder="Email" required="" autofocus="">
+    <input type="email" id="inputEmail" name="email" class="form-control p-6 mb-2" placeholder="Email" required="" autofocus="">
+
     <label for="inputPassword" class="sr-only">Password</label>
-    <input type="password" id="inputPassword" class="form-control p-6 mb-2" placeholder="Password" required="">
+    <input type="password" id="inputPassword" name="password" class="form-control p-6 mb-2" placeholder="Password" required="">
+
     <button class="btn btn-lg btn-primary btn-block" type="submit">Créer le compte</button>
 </form>
 
@@ -48,6 +55,6 @@
         integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
         crossorigin="anonymous"></script>
 <!-- Boilerplate javascript -->
-<script src="public/js/clean-blog.min.js"></script>
+<script src="../public/js/clean-blog.min.js"></script>
 </body>
 </html>

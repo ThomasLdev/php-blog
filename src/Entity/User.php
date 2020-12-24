@@ -48,21 +48,21 @@ class User
 
     public function setLastName(string $lastName)
     {
-        $this->first_name = $lastName;
+        $this->last_name = $lastName;
     }
 
     public function setEmail(string $email)
     {
-        $this->first_name = $email;
+        $this->email = $email;
     }
 
     public function setPassword(string $password)
     {
-        $this->first_name = $password;
+        $this->password = $password;
     }
 
     public function setThumbnail(string $thumbnail)
     {
-        $this->first_name = $thumbnail;
+        $this->thumbnail = $thumbnail;
     }
 }

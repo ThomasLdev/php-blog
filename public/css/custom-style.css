@@ -60,3 +60,19 @@
 .row-content{
     position: relative;
 }
+
+.scroll-btn{
+    display: none;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    cursor: pointer;
+    color: white;
+    background-color: #0085a1 !important;
+    opacity: 0.7;
+}
+
+.scroll-btn:hover{
+    color: white;
+    opacity: 1;
+}

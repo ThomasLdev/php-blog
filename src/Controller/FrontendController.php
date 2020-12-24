@@ -3,8 +3,10 @@
 Namespace App\Controller;
 
 use App\Entity\Comment;
+use App\Entity\User;
 use App\Manager\PostManager;
 use App\Manager\CommentManager;
+use App\Manager\UserManager;
 use Twig\Environment;
 
 class FrontendController
@@ -12,12 +14,14 @@ class FrontendController
     private Environment $twig;
     private PostManager $postManager;
     private CommentManager $commentManager;
+    private UserManager $userManager;
 
-    public function __construct(Environment $twig, PostManager $postManager, CommentManager $commentManager)
+    public function __construct(Environment $twig, PostManager $postManager, CommentManager $commentManager, UserManager $userManager)
     {
         $this->twig = $twig;
         $this->postManager = $postManager;
         $this->commentManager = $commentManager;
+        $this->userManager = $userManager;
     }
 
     public function listPosts()
@@ -38,13 +42,20 @@ class FrontendController
             $this->commentManager->saveComment($comment);
         }
         $comments = $this->commentManager->getPostComments($post);
-        echo $this->twig->render('post.html.twig', ['post' => $post, 'comments' => $comments], );
+        echo $this->twig->render('post.html.twig', ['post' => $post, 'comments' => $comments]);
     }
 
     public function register()
     {
         if ($_POST) {
-            echo 'attend, ça arrive';
+            $user = new User();
+            $user->setFirstName(ucwords($_POST['first_name']));
+            $user->setLastName(strtoupper($_POST['last_name']));
+            $user->setEmail($_POST['email']);
+            $user->setPassword(password_hash($_POST['password'], PASSWORD_DEFAULT));
+            $user->setThumbnail("../public/img/avatars/default.png");
+            $this->userManager->saveUser($user);
+            header('Location: index.php');
         }
         echo $this->twig->render('register.html.twig');
     }

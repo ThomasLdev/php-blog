@@ -2,7 +2,7 @@
 
 namespace App\Manager;
 use App\Entity\User;
-use App\Controller\FrontendController;
+//use App\Controller\FrontendController;
 
 class UserManager extends Manager
 {
@@ -22,7 +22,7 @@ class UserManager extends Manager
         ]);
     }
 
-    public function hydrateUser(array $userSQL): User
+    /*public function hydrateUser(array $userSQL): User
     {
         $user = new User();
         $user->setFirstName($userSQL['user_first_name']);
@@ -31,5 +31,5 @@ class UserManager extends Manager
         $user->setPassword($userSQL['user_password']);
         $user->setThumbnail($userSQL['user_thumbnail']);
         return $user;
-    }
+    }*/
 }

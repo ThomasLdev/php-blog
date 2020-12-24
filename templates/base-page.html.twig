@@ -19,9 +19,11 @@
     </head>
     <body>
 
+    <button id="scrollToTopBtn" class="btn bg-dark scroll-btn" onclick="topFunction()"><i class="fas fa-arrow-up"></i>️</button>
+
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
         <div class="container-fluid">
-            <a class="navbar-brand" href="../public/index.php">Thomas LEFEBVRE</a>
+            <a class="navbar-brand" href="../public/index.php"><i class="fas fa-home"></i></a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
                     data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -39,14 +41,13 @@
                     <li class="nav-item">
                         <a class="nav-link" href="../contact.html">contact</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../public/index.php?action=showAdmin">admin</a>
+                    </li>
                     <li class="nav-item dropdown">
-                        <!--<a class="nav-link" href="../public/index.php?action=showAdmin">
-                            <i class="fas fa-user fa-2x"></i>
-                        </a>-->
                             <a id="dropdownMenu" class="btn text-white dropdown-toggle" type="button" data-toggle="dropdown">
                                 <i class="fas fa-user"></i>
                             </a>
-
                         <div class="dropdown-menu" aria-labelledby="dropdownMenu" style="left: -180px;">
                             <form class="px-4 py-3">
                                 <div class="form-group">
@@ -59,15 +60,12 @@
                             </form>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="../public/index.php?action=register">Pas de compte ? Créez en un !</a>
-                            <a class="dropdown-item" href="#">Password oublié ?</a>
                         </div>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-
-
 
     <header class="masthead" style="background-image: url({% block headerURL %} '../public/img/header-home.jpg' {% endblock %})">
         <!-- Mettre l'image en variable twig et stocker sa reference en base, réhydrater et tout -->
@@ -151,6 +149,7 @@
             integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
             crossorigin="anonymous"></script>
     <!-- Boilerplate javascript -->
-    <script src="public/js/clean-blog.min.js"></script>
+    <script src="../public/js/clean-blog.min.js"></script>
+    <script src="../public/js/custom.js"></script>
     </body>
 </html>
