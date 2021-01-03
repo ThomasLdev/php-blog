@@ -4,16 +4,18 @@ Namespace App\Controller;
 use App\Manager\PostManager;
 use App\Entity\Post;
 use App\Manager\CommentManager;
+use App\Manager\UserManager;
 use DateTime;
 use Twig\Environment;
 
-class AdminController
+class AdminController extends Controller
 {
     private Environment $twig;
     private PostManager $postManager;
     private CommentManager $commentManager;
+    private UserManager $userManager;
 
-    public function __construct(Environment $twig, PostManager $postManager, CommentManager $commentManager)
+    public function __construct(Environment $twig, PostManager $postManager, CommentManager $commentManager, UserManager $userManager)
     {
         $this->twig = $twig;
         $this->postManager = $postManager;

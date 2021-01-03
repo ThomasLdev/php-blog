@@ -9,7 +9,8 @@ use App\Manager\CommentManager;
 use App\Manager\UserManager;
 use Twig\Environment;
 
-class FrontendController
+
+class FrontendController extends Controller
 {
     private Environment $twig;
     private PostManager $postManager;
@@ -58,5 +59,31 @@ class FrontendController
             header('Location: index.php');
         }
         echo $this->twig->render('register.html.twig');
+    }
+
+    public function login()
+    {
+        if ($_POST)
+        {
+            $userEmail = $_POST['user-email'];
+            $userPassword = $_POST['user-password'];
+            $user = $this->userManager->getUser($userEmail, $userPassword);
+            if ($user != null) {
+                $_SESSION['id'] = $user->getId();
+                $_SESSION['first_name'] = $user->getFirstName();
+                $_SESSION['last_name'] = $user->getLastName();
+                $_SESSION['email'] = $user->getEmail();
+                $_SESSION['password'] = $user->getPassword();
+                $_SESSION['thumbnail'] = $user->getThumbnail();
+                $_SESSION['admin'] = $user->getAdmin();
+            }
+            header('Location: index.php');
+        }
+    }
+
+    public function logout()
+    {
+        session_destroy();
+        header('Location: index.php');
     }
 }

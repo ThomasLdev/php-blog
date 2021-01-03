@@ -2,7 +2,6 @@
 
 namespace App\Manager;
 use App\Entity\User;
-//use App\Controller\FrontendController;
 
 class UserManager extends Manager
 {
@@ -22,14 +21,28 @@ class UserManager extends Manager
         ]);
     }
 
-    /*public function hydrateUser(array $userSQL): User
+    public function getUser(string $userEmail, string $userPassword)
+    {
+        $user = null;
+        $query= $this->pdo->prepare("SELECT * FROM user WHERE email = :email");
+        $query->execute(['email' => $userEmail]);
+        $userSQL = $query->fetch();
+        if (password_verify($userPassword, $userSQL['password']))
+        {
+            $user = $this->hydrateUser($userSQL);
+        }
+        return $user;
+    }
+
+    private function hydrateUser(array $userSQL): User
     {
         $user = new User();
-        $user->setFirstName($userSQL['user_first_name']);
-        $user->setLastName($userSQL['user_last_name']);
-        $user->setEmail($userSQL['user_email']);
-        $user->setPassword($userSQL['user_password']);
-        $user->setThumbnail($userSQL['user_thumbnail']);
+        $user->setFirstName($userSQL['first_name']);
+        $user->setLastName($userSQL['last_name']);
+        $user->setEmail($userSQL['email']);
+        $user->setPassword($userSQL['password']);
+        $user->setThumbnail($userSQL['thumbnail']);
+        $user->setAdmin($userSQL['is_admin']);
         return $user;
-    }*/
+    }
 }

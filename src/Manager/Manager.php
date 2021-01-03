@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Manager;
-
 use PDO;
 
 abstract class Manager

@@ -10,6 +10,7 @@ class User
     private ?string $email = null;
     private ?string $password = null;
     private ?string $thumbnail = null;
+    private ?int $is_admin = 0;
 
     public function getId(): ?int
     {
@@ -41,6 +42,11 @@ class User
         return $this->thumbnail;
     }
 
+    public function getAdmin(): ?int
+    {
+        return $this->is_admin;
+    }
+
     public function setFirstName(string $firstName)
     {
         $this->first_name = $firstName;
@@ -64,5 +70,10 @@ class User
     public function setThumbnail(string $thumbnail)
     {
         $this->thumbnail = $thumbnail;
+    }
+
+    public function setAdmin(int $is_admin)
+    {
+        $this->is_admin = $is_admin;
     }
 }

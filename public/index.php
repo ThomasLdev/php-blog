@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 require __DIR__ . '/../vendor/autoload.php';
 
 use App\Controller\AdminController;
@@ -16,13 +18,15 @@ $twig = new Environment($loader,[
 'debug' => true]);
 $twig->addExtension(new DebugExtension());
 
+$twig->addGlobal('appUser', $_SESSION);
+
 $pdo = new PDO('mysql:host=localhost;dbname=blog;charset=utf8', 'root', '');
 $postManager = new PostManager($pdo);
 $commentManager = new CommentManager($pdo);
 $userManager = new UserManager($pdo);
 
 $frontController = new FrontendController($twig, $postManager, $commentManager, $userManager);
-$adminController = new AdminController($twig, $postManager, $commentManager);
+$adminController = new AdminController($twig, $postManager, $commentManager, $userManager);
 
     $action = isset($_GET['action']) ? $_GET['action'] : null;
     switch ($action) {
@@ -62,6 +66,12 @@ $adminController = new AdminController($twig, $postManager, $commentManager);
             break;
         case "register":
             $frontController->register();
+            break;
+        case "login":
+            $frontController->login();
+            break;
+        case "logout":
+            $frontController->logout();
             break;
         default:
             $frontController->listPosts();
