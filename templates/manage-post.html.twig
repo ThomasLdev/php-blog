@@ -33,7 +33,9 @@
         {% for allPost in allPosts %}
             <div class="row justify-content-center align-items-center p-2">
                 <div class="col-lg-2 text-center">
-                    <img class="post-thumbnail" src="{{ allPost.thumbnail }}" alt="post image"/>
+                    <a href="../public/index.php?action=showPost&amp;id={{ allPost.id }}">
+                        <img class="post-thumbnail" src="{{ allPost.thumbnail }}" alt="post image"/>
+                    </a>
                 </div>
                 <div class="col-lg-3 text-center">
                     {{ allPost.title }}

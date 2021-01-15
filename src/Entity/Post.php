@@ -9,16 +9,16 @@ class Post
     private ?int $id = null;
     private ?string $author = null;
     private ?string $title = null;
-    private ?DateTime $created_at;
-    private ?DateTime $updated_at;
+    private ?DateTime $createdAt;
+    private ?DateTime $updatedAt;
     private ?string $category = null;
     private ?string $content = null;
     private ?string $thumbnail = null;
 
     public function __construct()
     {
-        $this->created_at = new DateTime();
-        $this->updated_at = new DateTime();
+        $this->createdAt = new DateTime();
+        $this->updatedAt = new DateTime();
     }
 
     public function getId(): ?int
@@ -38,12 +38,12 @@ class Post
 
     public function getCreatedAt(): DateTime
     {
-        return $this->created_at;
+        return $this->createdAt;
     }
 
     public function getUpdatedAt(): DateTime
     {
-        return $this->updated_at;
+        return $this->updatedAt;
     }
 
     public function getCategory(): ?string
@@ -76,14 +76,14 @@ class Post
         $this->title = $title;
     }
 
-    public function setCreatedAt(DateTime $created_at)
+    public function setCreatedAt(DateTime $createdAt)
     {
-        $this->created_at = $created_at;
+        $this->createdAt = $createdAt;
     }
 
-    public function setUpdatedAt(DateTime $updated_at)
+    public function setUpdatedAt(DateTime $updatedAt)
     {
-        $this->updated_at = $updated_at;
+        $this->updatedAt = $updatedAt;
     }
 
     public function setCategory(string $category)

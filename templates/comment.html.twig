@@ -4,14 +4,14 @@
     <div class="row">
         <div class="col-8 d-flex justify-content-start align-items-center">
             <div class="avatar">
-                <img class="avatar-img" src="../public/img/avatars/default.png" alt="{{ comment.author }}">
+                <img class="avatar-img" src="../public/img/avatars/default.png" alt="{{ comment.authorComment }}">
             </div>
-            <p class="pl-2"><span class="comment-author">{{ comment.author }}Thomas</span></p>
+            <p class="pl-2"><span class="comment-author">{{ comment.authorComment }}</span></p>
         </div>
         <div class="col-4">
             <p class="text-right pr-3">
                 le
-                {{ comment.date|date("d/m/Y")  }}
+                {{ comment.createdAt|date("d/m/Y") }}
             </p>
         </div>
     </div>

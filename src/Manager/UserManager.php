@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Manager;
+
 use App\Entity\User;
 
 class UserManager extends Manager
@@ -21,14 +22,13 @@ class UserManager extends Manager
         ]);
     }
 
-    public function getUser(string $userEmail, string $userPassword)
+    public function getUser(string $userEmail, string $userPassword): ?User
     {
         $user = null;
-        $query= $this->pdo->prepare("SELECT * FROM user WHERE email = :email");
+        $query = $this->pdo->prepare("SELECT * FROM user WHERE email = :email");
         $query->execute(['email' => $userEmail]);
         $userSQL = $query->fetch();
-        if (password_verify($userPassword, $userSQL['password']))
-        {
+        if (password_verify($userPassword, $userSQL['password'])) {
             $user = $this->hydrateUser($userSQL);
         }
         return $user;
@@ -37,6 +37,7 @@ class UserManager extends Manager
     private function hydrateUser(array $userSQL): User
     {
         $user = new User();
+        $user->setId($userSQL['id']);
         $user->setFirstName($userSQL['first_name']);
         $user->setLastName($userSQL['last_name']);
         $user->setEmail($userSQL['email']);

@@ -76,3 +76,12 @@
     color: white;
     opacity: 1;
 }
+
+.background-main{
+    background-color: #0085a1;
+}
+
+.cv-pdf{
+    width: 900px;
+    height: 800px;
+}

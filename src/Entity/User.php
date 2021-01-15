@@ -5,12 +5,12 @@ namespace App\Entity;
 class User
 {
     private ?int $id = null;
-    private ?string $first_name = null;
-    private ?string $last_name = null;
+    private ?string $firstName = null;
+    private ?string $lastName = null;
     private ?string $email = null;
     private ?string $password = null;
     private ?string $thumbnail = null;
-    private ?int $is_admin = 0;
+    private ?int $isAdmin = 0;
 
     public function getId(): ?int
     {
@@ -19,12 +19,12 @@ class User
 
     public function getFirstName(): ?string
     {
-        return $this->first_name;
+        return $this->firstName;
     }
 
     public function getLastName(): ?string
     {
-        return $this->last_name;
+        return $this->lastName;
     }
 
     public function getEmail(): ?string
@@ -44,17 +44,22 @@ class User
 
     public function getAdmin(): ?int
     {
-        return $this->is_admin;
+        return $this->isAdmin;
+    }
+
+    public function setId(int $id)
+    {
+        $this->id = $id;
     }
 
     public function setFirstName(string $firstName)
     {
-        $this->first_name = $firstName;
+        $this->firstName = $firstName;
     }
 
     public function setLastName(string $lastName)
     {
-        $this->last_name = $lastName;
+        $this->lastName = $lastName;
     }
 
     public function setEmail(string $email)
@@ -74,6 +79,6 @@ class User
 
     public function setAdmin(int $is_admin)
     {
-        $this->is_admin = $is_admin;
+        $this->isAdmin = $is_admin;
     }
 }

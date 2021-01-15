@@ -1,0 +1,23 @@
+{% extends "base-page.html.twig" %}
+
+
+{% block headTitle %} OOPS ! 403 ! {% endblock %}
+{% block headerURL %} '../public/img/error-page.jpg' {% endblock %}
+
+{% block backHome %}{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1>Oops, Une erreur 403 !</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <p>
+                    Cela veut dire que vous n'avez pas les droits suffisants pour accéder à cette page. Veuillez créer un compte et faire une demande par mail à un administrateur.
+            </div>
+        </div>
+    </div>
+{% endblock %}

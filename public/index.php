@@ -1,8 +1,8 @@
 <?php
 
-session_start();
-
 require __DIR__ . '/../vendor/autoload.php';
+
+session_start();
 
 use App\Controller\AdminController;
 use App\Controller\FrontendController;
@@ -18,7 +18,7 @@ $twig = new Environment($loader,[
 'debug' => true]);
 $twig->addExtension(new DebugExtension());
 
-$twig->addGlobal('appUser', $_SESSION);
+$twig->addGlobal('appUser', isset($_SESSION['user']) ? $_SESSION['user'] : null);
 
 $pdo = new PDO('mysql:host=localhost;dbname=blog;charset=utf8', 'root', '');
 $postManager = new PostManager($pdo);
@@ -26,7 +26,7 @@ $commentManager = new CommentManager($pdo);
 $userManager = new UserManager($pdo);
 
 $frontController = new FrontendController($twig, $postManager, $commentManager, $userManager);
-$adminController = new AdminController($twig, $postManager, $commentManager, $userManager);
+$adminController = new AdminController($twig, $postManager, $commentManager);
 
     $action = isset($_GET['action']) ? $_GET['action'] : null;
     switch ($action) {
@@ -73,6 +73,15 @@ $adminController = new AdminController($twig, $postManager, $commentManager, $us
         case "logout":
             $frontController->logout();
             break;
+        case "contact":
+            $frontController->contact();
+            break;
+        case "contactTy":
+            echo $twig->render('contact-ty.html.twig');
+            break;
+        case "cv":
+            echo $twig->render('cv.html.twig');
+            break;
         default:
-            $frontController->listPosts();
+            echo $twig->render('404.html.twig');
     }

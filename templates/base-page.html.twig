@@ -23,7 +23,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
         <div class="container-fluid">
-            <a class="navbar-brand" href="../public/index.php"><i class="fas fa-home"></i></a>
+            <a class="navbar-brand" href="../public/index.php?action=listPosts"><i class="fas fa-home"></i></a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
                     data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -33,13 +33,10 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto" style="display: flex; justify-content: center; align-items: center">
                     <li class="nav-item">
-                        <a class="nav-link" href="../about.html">à propos</a>
+                        <a class="nav-link" href="../public/index.php?action=cv">cv</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">cv</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../contact.html">contact</a>
+                        <a class="nav-link" href="../public/index.php?action=contact">contact</a>
                     </li>
 
                     {% if appUser.admin == 1 %}
@@ -59,7 +56,7 @@
                                 </div>
                                 <div class="form-group">
                                     <p>
-                                        {{ appUser.first_name }} {{ appUser.last_name }}
+                                        {{ appUser.firstName }} {{ appUser.lastName }}
                                     </p>
                                 </div>
                                 <div class="form-group">
@@ -75,10 +72,14 @@
                         <div class="dropdown-menu" aria-labelledby="dropdownMenu" style="left: -180px;">
                             <form class="px-4 py-3 text-center" method="post" action="../public/index.php?action=login">
                                 <div class="form-group">
-                                    <input type="email" name="user-email" class="form-control" placeholder="email@example.com">
+                                    <label>
+                                        <input type="email" name="user-email" class="form-control" placeholder="email@example.com">
+                                    </label>
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" name="user-password" class="form-control" placeholder="Password">
+                                    <label>
+                                        <input type="password" name="user-password" class="form-control" placeholder="Password">
+                                    </label>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Connexion</button>
                             </form>
@@ -97,7 +98,7 @@
                 <div class="row">
                     <div class="col-lg-8 col-md-10 mx-auto">
                         <div class="site-heading">
-                            <h1>{% block headerTitle %}{% endblock %}</h1>
+                            <h1 class="text-uppercase">{% block headerTitle %}{% endblock %}</h1>
                             <span class="subheading">{% block headerSubtitle %}{% endblock %}</span>
                         </div>
                     </div>
@@ -106,7 +107,7 @@
         {% block backHome %}
             <div class="row">
                 <div class="col-12 mx-auto d-flex justify-content-end">
-                    <a class="back-link" href="../public/index.php">
+                    <a class="back-link" href="../public/index.php?action=listPosts">
                         <div class="back-home-container">
                             <span class="back-home-text">Retour à l'accueil</span>
                         </div>
@@ -136,7 +137,7 @@
                                 </a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="mailto:contact@thomas.lefebvre.fr" target="_blank">
+                                <a href="../public/index.php?action=contact">
                                     <span class="fa-stack fa-lg">
                                       <i class="fas fa-circle fa-stack-2x"></i>
                                       <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>

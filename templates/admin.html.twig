@@ -102,35 +102,25 @@
                                         <div class="bg-overlay bg-overlay--blue"></div>
                                         <h3>
                                             <i class="fas fa-comments fa-2x"></i>Derniers Coms' Publiés</h3>
-                                        <button class="au-btn-plus">
-                                            <a href="#">
-                                            <i class="fas fa-plus"></i>
-                                            </a>
-                                        </button>
                                     </div>
 
                                     <div class="au-inbox-wrap js-inbox-wrap">
                                         <div class="au-message js-list-load">
-                                            <div class="au-message__noti">
-                                            </div>
                                             <div class="au-message-list">
                                                 {% for comment in allValidatedComments %}
                                                 <div class="au-message__item unread">
                                                     <div class="au-message__item-inner">
                                                         <div class="au-message__item-text">
                                                             <div class="avatar-wrap">
-                                                                <div class="avatar">
-                                                                    <img src="images/icon/avatar-02.jpg"
-                                                                         alt="{{ comment.author }}">
-                                                                </div>
+                                                                <img src="../public/img/avatars/default.png" alt="Avatar" width="50px">
                                                             </div>
                                                             <div class="text">
-                                                                <h5 class="name">{{ comment.author }}</h5>
+                                                                <h5 class="name">{{ comment.authorComment }}</h5>
                                                                 <p>{{ comment.content }}</p>
                                                             </div>
                                                         </div>
                                                         <div class="au-message__item-time">
-                                                            <span>{{ comment.date }}</span>
+                                                            <span>{{ comment.date|date("d/m/Y") }}</span>
                                                         </div>
                                                     </div>
                                                 </div>

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Manager;
+
 use App\Entity\Post;
 use DateTime;
 use PDO;
@@ -11,7 +12,8 @@ class PostManager extends Manager
 
     public function getPosts(int $limit = null): array
     {
-        $request = 'SELECT     p.id "post_id",
+        $request = '
+                   SELECT p.id "post_id",
                    p.title "post_title",
                    p.created_at "post_date",
                    p.updated_at "post_update",
@@ -35,8 +37,7 @@ class PostManager extends Manager
         $lastPostsRequest->execute();
         $postsSQL = $lastPostsRequest->fetchAll();
         $posts = [];
-        foreach ($postsSQL as $postSQL)
-        {
+        foreach ($postsSQL as $postSQL) {
             $posts[] = $this->hydratePost($postSQL);
         }
         return $posts;
@@ -45,7 +46,7 @@ class PostManager extends Manager
     public function getPost(int $postId): Post
     {
         $singlePostRequest = $this->pdo->prepare('
-            SELECT p.id "post_id",
+                   SELECT p.id "post_id",
                    p.title "post_title",
                    p.created_at "post_date",
                    p.updated_at "post_update",
@@ -63,11 +64,10 @@ class PostManager extends Manager
 
     public function savePost(Post $post)
     {
-        if ($post->getId() === null)
-        {
+        if ($post->getId() === null) {
             $sendPostRequest = $this->pdo->prepare('
                 INSERT INTO posts 
-                       (author_id, title, created_at, updated_at, category, content, thumbnail) 
+                (author_id, title, created_at, updated_at, category, content, thumbnail) 
                 VALUES (:authorId, :title, :createdAt, :updatedAt, :category, :content, :thumbnail)
         ');
             $sendPostRequest->execute([
