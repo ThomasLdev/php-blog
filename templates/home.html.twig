@@ -2,7 +2,7 @@
 
 
 {% block headTitle %} Thomas LEFEBVRE - Développeur Backend {% endblock %}
-{% block headerURL %} '../public/img/header-home2.jpg' {% endblock %}
+{% block headerURL %} 'img/header-home2.jpg' {% endblock %}
 {% block headerTitle %} Thomas Lefebvre <br>
     <hr class="bg-white">
 
@@ -17,24 +17,26 @@
             <div class="row">
                 <div class="col-lg-8 col-md-10 mx-auto">
                     <div class="post-preview">
-                        <a href="../public/index.php?action=showPost&amp;id={{ post.id }}">
+                        <a href="post/{{ post.id }}">
                             <h2 class="post-title">
                                 {{ post.title }}
                             </h2>
                         </a>
-                        <a class="overlay" href="../public/index.php?action=showPost&amp;id={{ post.id }}">
+                        <a class="overlay" href="post/{{ post.id }}">
                             <img class="post-thumbnail" src="{{ post.thumbnail }}" alt="post image"/>
                         </a>
                         <p class="text-justify">
                             {{ post.content |slice(0, 400) }}
-                            <a href="../public/index.php?action=showPost&amp;id={{ post.id }}">En lire plus</a>
+                            <a href="post/{{ post.id }}">En lire plus</a>
                         </p>
                         <p class="post-meta">Publié par
-                            <em class="text-primary">{{ post.author }}</em>
+                            <em class="text-author">{{ post.author }}</em>
                             le <em class="text-dark">{{ post.createdAt|date("d/m/Y") }}</em> ;
                             updaté le <em class="text-dark">{{ post.updatedAt| date("d/m/Y") }}</em>
                         </p>
+                        {% if loop.index < posts|length %}
                         <hr/>
+                        {% endif %}
                     </div>
                 </div>
             </div>

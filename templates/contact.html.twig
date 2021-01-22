@@ -2,7 +2,7 @@
 
 
 {% block headTitle %} Thomas LEFEBVRE - Contact {% endblock %}
-{% block headerURL %} '../public/img/header-home2.jpg' {% endblock %}
+{% block headerURL %} 'img/header-home2.jpg' {% endblock %}
 {% block headerTitle %} Thomas Lefebvre <br>
     <hr class="bg-white">
 
@@ -18,7 +18,7 @@
                 <div class="col-lg-8 col-md-10 mx-auto">
                     <p>Vous souhaitez me contacter ? Remplissez le formulaire ci-dessous et je reviendrai vers vous le plus vite possible !</p>
 
-                    <form name="sentMessage" id="contactForm" novalidate>
+                    <form method="post" enctype="multipart/form-data">
                         <div class="control-group">
                             <div class="form-group floating-label-form-group controls">
 
@@ -53,7 +53,7 @@
                         </div>
                         <br>
                         <div id="success"></div>
-                        <button type="submit" class="btn btn-primary" id="sendMessageButton">Envoyer</button>
+                        <button type="submit" class="btn btn-primary">Envoyer</button>
                     </form>
                 </div>
             </div>

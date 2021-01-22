@@ -51,9 +51,9 @@ class FrontendController extends Controller
             $user->setLastName(strtoupper($_POST['last_name']));
             $user->setEmail($_POST['email']);
             $user->setPassword(password_hash($_POST['password'], PASSWORD_DEFAULT));
-            $user->setThumbnail("../public/img/avatars/default.png");
+            $user->setThumbnail("/img/avatars/default.png");
             $this->userManager->saveUser($user);
-            header('Location: index.php?action=listPosts');
+            header('Location: /');
         }
         echo $this->twig->render('register.html.twig');
     }
@@ -67,48 +67,49 @@ class FrontendController extends Controller
             if ($user != null) {
                 $_SESSION['user'] = $user;
             }
-            header('Location: index.php?action=listPosts');
+            header('Location: /');
         }
     }
 
     public function logout()
     {
         session_destroy();
-        header('Location: index.php?action=listPosts');
+        header('Location: /');
     }
 
     public function contact()
     {
         if ($_POST) {
+
             $errors = '';
             $myEmail = 'contact@thomas-lefebvre.com';
+
             if (empty($_POST['name']) || empty($_POST['email']) || empty($_POST['message'])) {
-                return $errors . "\n Error: all fields are required";
+                return $errors . "\n Erreur: Tous les champs sont requis";
             }
+
             $name = $_POST['name'];
-            var_dump($name);
             $emailAddress = $_POST['email'];
-            var_dump($emailAddress);
             $message = $_POST['message'];
-            var_dump($message);
             $phone = $_POST['phone'];
-            var_dump($phone);
 
             if (!preg_match(
                 "/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/i",
                 $emailAddress))
             {
-                return $errors . "\n Error: Invalid email address";
+                return $errors . "\n Erreur: mail invalide =)";
             }
 
             if( empty($errors)) {
                 $to = $myEmail;
                 $email_subject = "Message du blog de la part de : $name";
                 $email_body = "$message - $phone";
-                $headers = "From: $myEmail\n";
-                $headers .= "Reply-To: $emailAddress";
+                $headers = "De: $myEmail\n";
+                $headers .= "Répondre à: $emailAddress";
                 mail($to, $email_subject, $email_body, $headers);
-                header('Location: index.php?action=contactTy');
+                header('Location: /contact/thank-you');
+            } else {
+                return $errors;
             }
         }
         echo $this->twig->render('contact.html.twig');

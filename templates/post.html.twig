@@ -5,13 +5,13 @@
     <h2 class="subheading pb-1">Catégorie : {{ post.category }}</h2>
     publié par <em class="text-light">{{ post.author }}</em> le <em>{{ post.createdAt|date("d/m/Y") }}</em>
 {% endblock %}
-{% block headerURL %} '../public/img/header-single2.jpg' {% endblock %}
+{% block headerURL %} '/img/header-single2.jpg' {% endblock %}
 
 {% block content %}
     <article>
         <div class="container">
             <div class="row">
-                <img class="post-thumbnail" src="{{ post.thumbnail }}" alt="post image"/>
+                <img class="post-thumbnail" src="/{{ post.thumbnail }}" alt="post image"/>
                 <div class="col-12 p-0">
                     <p class="text-justify">
                         {{ post.content }}
@@ -45,7 +45,6 @@
                         <button class="btn background-main" type="submit">Poster</button>
                     </div>
                 </form>
-
             </div>
         </div>
     {% endif %}
@@ -75,6 +74,3 @@
         {% endif %}
     {% endif %}
 {% endblock %}
-
-
-
