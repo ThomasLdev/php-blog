@@ -25,3 +25,5 @@ Run composer with these dependencies :
 
 Run the sql script on your database, provided in the openclassroom folder, and you're good to go.
 
+Enjoy !
+
