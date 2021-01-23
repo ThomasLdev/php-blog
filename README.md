@@ -2,7 +2,9 @@
 
 If you want to install the projetct locally, be sure to have PHP 7.4 and MYSQL running on an apache server.
 
-Install via composer with these dependencies : 
+Download the files and place in htdocs/blog/, on your local server.
+
+Run composer with these dependencies : 
 
 {
     "require": {
