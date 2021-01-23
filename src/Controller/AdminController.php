@@ -40,7 +40,7 @@ class AdminController extends Controller
             $createdPost->setContent($_POST['post-content']);
             $createdPost->setAuthor($this->getUser()->getId());
             $this->postManager->savePost($createdPost);
-            header('Location: index.php?action=showAdmin');
+            header('Location: /admin/manage/post');
         }
         echo $this->twig->render('create-post.html.twig');
     }
@@ -71,7 +71,7 @@ class AdminController extends Controller
             $post->setAuthor($this->getUser()->getId());
             $post->setUpdatedAt(new DateTime());
             $this->postManager->savePost($post);
-            header('Location: index.php?action=managePost');
+            header('Location: /admin/manage/post');
         }
         echo $this->twig->render('modify-post.html.twig', ['post' => $post]);
     }
@@ -80,20 +80,20 @@ class AdminController extends Controller
     {
         $this->checkAdmin();
         $this->postManager->deletePost($postId);
-        header('Location: index.php?action=managePost');
+        header('Location: /admin/manage/post');
     }
 
     public function validateComment(int $commentId)
     {
         $this->checkAdmin();
         $this->commentManager->validateComment($commentId);
-        header('Location: index.php?action=manageComment');
+        header('Location: /admin/manage/comment');
     }
 
     public function deleteComment(int $commentId)
     {
         $this->checkAdmin();
         $this->commentManager->deleteComment($commentId);
-        header('Location: index.php?action=manageComment');
+        header('Location: /admin/manage/comment');
     }
 }
