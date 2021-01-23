@@ -1478,7 +1478,7 @@
   "use strict";
 
   // Scroll Bar
-  try {
+  /*try {
     var jscr1 = $('.js-scrollbar1');
     if(jscr1[0]) {
       const ps1 = new PerfectScrollbar('.js-scrollbar1');      
@@ -1492,7 +1492,7 @@
 
   } catch (error) {
     console.log(error);
-  }
+  }*/
 
 })(jQuery);
 (function ($) {
@@ -1654,7 +1654,7 @@
   }
 
   // Chatbox
-  try {
+  /*try {
     var inbox_wrap = $('.js-inbox');
     var message = $('.au-message__item');
     message.each(function(){
@@ -1668,6 +1668,6 @@
 
   } catch (error) {
     console.log(error);
-  }
+  }*/
 
 })(jQuery);
