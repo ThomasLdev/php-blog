@@ -1,8 +1,25 @@
 # php-blog
 
-This website can be seen in it's live version here : 
+If you want to install the projetct locally, be sure to have PHP 7.4 and MYSQL running on an apache server.
 
-www.thomas-lefebvre.fr
+Install via composer with these dependencies : 
 
-If you want to install it locally, be sure to have PHP 7.4 and MYSQL
+{
+    "require": {
+        "twig/twig": "^3.0",
+        "ext-pdo": "*"
+    },
+
+    "require-dev": {
+        "roave/security-advisories": "dev-master"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    }
+}
+
+Run the sql script on your database, provided in the openclassroom folder, and you're good to go.
 
