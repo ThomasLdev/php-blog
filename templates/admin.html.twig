@@ -25,7 +25,7 @@
                                                 <i class="fas fa-comments"></i>
                                             </div>
                                             <div class="text">
-                                                <h2>{{ allComments|length }}</h2>
+                                                <h2>{{ allValidatedComments|length }}</h2>
 
                                                 <span>commentaires postés</span>
                                             </div>
@@ -68,12 +68,13 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="au-card au-card--no-shadow au-card--no-pad m-b-40">
-                                    <div class="au-card-title" style="background-image:url('../public/img/admin/card-newspaper.jpg');">
+                                    <div class="au-card-title"
+                                         style="background-image:url('/img/admin/card-newspaper.jpg');">
                                         <div class="bg-overlay bg-overlay--blue"></div>
                                         <h3>
                                             <i class="fas fa-newspaper fa-3x"></i>Derniers Articles Publiés</h3>
                                         <button class="au-btn-plus">
-                                            <a href="../public/index.php?action=createPost">
+                                            <a href="admin/create/post">
                                                 <i class="fas fa-plus"></i>
                                             </a>
 
@@ -82,14 +83,14 @@
                                     <div class="au-task js-list-load">
                                         <div class="au-task-list js-scrollbar3">
                                             {% for post in posts %}
-                                            <div class="au-task__item au-task__item--danger">
-                                                <div class="au-task__item-inner">
-                                                    <h5 class="task">
-                                                        <a href="../public/index.php?action=showPost&amp;id={{ post.id }}">{{ post.title }}</a>
-                                                    </h5>
-                                                    <span class="time">{{ post.created_at|date("d/m/Y") }}</span>
+                                                <div class="au-task__item au-task__item--danger">
+                                                    <div class="au-task__item-inner">
+                                                        <h5 class="task">
+                                                            <a href="post/{{ post.id }}">{{ post.title }}</a>
+                                                        </h5>
+                                                        <span class="time">{{ post.created_at|date("d/m/Y") }}</span>
+                                                    </div>
                                                 </div>
-                                            </div>
                                             {% endfor %}
                                         </div>
                                     </div>
@@ -98,42 +99,34 @@
                             <div class="col-lg-6">
                                 <div class="au-card au-card--no-shadow au-card--no-pad m-b-40">
 
-                                    <div class="au-card-title" style="background-image:url('../public/img/admin/card-comment.jpg');">
+                                    <div class="au-card-title"
+                                         style="background-image:url('/img/admin/card-comment.jpg');">
                                         <div class="bg-overlay bg-overlay--blue"></div>
                                         <h3>
                                             <i class="fas fa-comments fa-2x"></i>Derniers Coms' Publiés</h3>
-                                        <button class="au-btn-plus">
-                                            <a href="#">
-                                            <i class="fas fa-plus"></i>
-                                            </a>
-                                        </button>
                                     </div>
 
                                     <div class="au-inbox-wrap js-inbox-wrap">
                                         <div class="au-message js-list-load">
-                                            <div class="au-message__noti">
-                                            </div>
                                             <div class="au-message-list">
-                                                {% for comment in Allcomments %}
-                                                <div class="au-message__item unread">
-                                                    <div class="au-message__item-inner">
-                                                        <div class="au-message__item-text">
-                                                            <div class="avatar-wrap">
-                                                                <div class="avatar">
-                                                                    <img src="images/icon/avatar-02.jpg"
-                                                                         alt="{{ comment.author }}">
+                                                {% for comment in allValidatedComments %}
+                                                    <div class="au-message__item unread">
+                                                        <div class="au-message__item-inner">
+                                                            <div class="au-message__item-text">
+                                                                <div class="avatar-wrap">
+                                                                    <img src="/img/avatars/default.png" alt="Avatar"
+                                                                         width="50px">
+                                                                </div>
+                                                                <div class="text">
+                                                                    <h5 class="name">{{ comment.authorComment }}</h5>
+                                                                    <p>{{ comment.content }}</p>
                                                                 </div>
                                                             </div>
-                                                            <div class="text">
-                                                                <h5 class="name">{{ comment.author }}</h5>
-                                                                <p>{{ comment.content }}</p>
+                                                            <div class="au-message__item-time">
+                                                                <span>{{ comment.date|date("d/m/Y") }}</span>
                                                             </div>
                                                         </div>
-                                                        <div class="au-message__item-time">
-                                                            <span>{{ comment.date }}</span>
-                                                        </div>
                                                     </div>
-                                                </div>
                                                 {% endfor %}
                                             </div>
                                         </div>
@@ -141,6 +134,5 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                        </div>
                     {% endblock %}
-

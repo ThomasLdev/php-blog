@@ -1,0 +1,36 @@
+{% extends "base-page.html.twig" %}
+
+
+{% block headTitle %} Thomas LEFEBVRE - Contact {% endblock %}
+{% block headerURL %} 'img/header-home2.jpg' {% endblock %}
+{% block headerTitle %} Thomas Lefebvre <br>
+    <hr class="bg-white">
+
+{% endblock %}
+{% block headerSubtitle %} Developpeur Backend PHP <br>Construisons les fondations de votre activité {% endblock %}
+
+{% block backHome %}{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <object class="cv-pdf"
+                        data='files/cv-lefebvre-thomas.pdf'
+                        type="application/pdf">
+
+                    <iframe class="cv-pdf"
+                            src='https://pdfjs-express.s3-us-west-2.amazonaws.com/docs/choosing-a-pdf-viewer.pdf'>
+                        <p>This browser does not support PDF!</p>
+                    </iframe>
+
+                </object>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <p class="text-center">Vous souhaitez travailler avec moi ? Contactez-moi sur ce <a href="/contact">formulaire</a></p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

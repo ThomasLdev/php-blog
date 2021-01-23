@@ -1,0 +1,27 @@
+{% extends "base-page.html.twig" %}
+
+
+{% block headTitle %} OOPS ! 404 ! {% endblock %}
+{% block headerURL %} '/img/error-page.jpg' {% endblock %}
+
+{% block backHome %}{% endblock %}
+
+{% block content %}
+    <div class="container">
+       <div class="row">
+           <div class="col-12 text-center">
+               <h1>Oops, Une erreur 404 !</h1>
+           </div>
+       </div>
+        <div class="row">
+            <div class="col-12 text-center">
+                <p>
+                    Cela veut dire que je n'ai pas trouvé la page que vous demandiez.
+                </p>
+                <p>Mais, pas de panique, il en reste bien d'autres très sympa à visiter !</p>
+                <p>Vous les trouverez <a href="/">ici</a></p>
+                <img src="https://media.giphy.com/media/Yiw4aLjpxldhC/giphy.gif" alt="search" width="70%">
+            </div>
+        </div>
+    </div>
+{% endblock %}

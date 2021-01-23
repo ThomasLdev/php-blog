@@ -2,16 +2,16 @@
 
 {% block headerTitle %}{{ post.title }}{% endblock %}
 {% block headerSubtitle %}
-    <h2 class="subheading">Catégorie : {{ post.category }}</h2>
-    publié par <a href="#">{{ post.author }}</a> le <em>{{ post.createdAt|date("d/m/Y") }}</em>
+    <h2 class="subheading pb-1">Catégorie : {{ post.category }}</h2>
+    publié par <em class="text-light">{{ post.author }}</em> le <em>{{ post.createdAt|date("d/m/Y") }}</em>
 {% endblock %}
-{% block headerURL %} '../public/img/header-single2.jpg' {% endblock %}
+{% block headerURL %} '/img/header-single2.jpg' {% endblock %}
 
 {% block content %}
     <article>
         <div class="container">
             <div class="row">
-                <img class="post-thumbnail" src="{{ post.thumbnail }}" alt="post image"/>
+                <img class="post-thumbnail" src="/{{ post.thumbnail }}" alt="post image"/>
                 <div class="col-12 p-0">
                     <p class="text-justify">
                         {{ post.content }}
@@ -25,33 +25,29 @@
             </div>
         </div>
     </article>
-
-    <div class="container">
-        <div class="row">
-            <div class="col-12 p-0">
-                <p class="text-start">
-                    Réagir à cet article :
-                </p>
+    {% if appUser %}
+        <div class="container">
+            <div class="row">
+                <div class="col-12 p-0">
+                    <p class="text-start">
+                        Réagir à cet article :
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <!-- POST COMMENT -->
+                <form method="post" enctype="multipart/form-data" style="width: 100%">
+                    <div class="group-form d-flex flex-column">
+                        <label for="comment-message">Votre message</label>
+                        <textarea type="text" id="comment-message" name="comment-message"></textarea>
+                    </div>
+                    <div class="group-form mt-3">
+                        <button class="btn background-main" type="submit">Poster</button>
+                    </div>
+                </form>
             </div>
         </div>
-        <div class="row">
-            <!-- POST COMMENT -->
-            <form method="post" enctype="multipart/form-data" style="width: 100%">
-                <div class="group-form d-flex flex-column">
-                    <label for="comment-author-name">Votre nom</label>
-                    <input type="text" id="comment-author-name" name="comment-author-name" style="width: 30%">
-                </div>
-                <div class="group-form d-flex flex-column">
-                    <label for="comment-message">Votre message</label>
-                    <textarea type="text" id="comment-message" name="comment-message"></textarea>
-                </div>
-                <div class="group-form mt-3">
-                    <button class="btn bg-primary" type="submit">Poster</button>
-                </div>
-            </form>
-
-        </div>
-    </div>
+    {% endif %}
 
     {% if comments|length != 0 %}
         <div class="container">
@@ -64,8 +60,17 @@
             </div>
         </div>
         {% include 'comment.html.twig' %}
+
+        {% if appUser is empty %}
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <p>
+                            Pour répondre à ces commentaires, veuillez vous connecter, ou créer un compte.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
     {% endif %}
 {% endblock %}
-
-
-

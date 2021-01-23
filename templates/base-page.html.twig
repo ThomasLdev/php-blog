@@ -13,15 +13,17 @@
             <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
                   rel='stylesheet' type='text/css'>
             <!-- Bootstrap CSS, Boilerplate CSS, Custom CSS -->
-            <link rel="stylesheet" href="../public/css/bootstrap.min.css">
-            <link rel="stylesheet" href="../public/css/clean-blog.min.css">
-            <link rel="stylesheet" href="../public/css/custom-style.css">
+            <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+            <link rel="stylesheet" href="/assets/css/clean-blog.min.css">
+            <link rel="stylesheet" href="/assets/css/custom-style.css">
     </head>
     <body>
 
+    <button id="scrollToTopBtn" class="btn bg-dark scroll-btn" onclick="topFunction()"><i class="fas fa-arrow-up"></i>️</button>
+
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
         <div class="container-fluid">
-            <a class="navbar-brand" href="../public/index.php">Thomas LEFEBVRE</a>
+            <a class="navbar-brand" href="/"><i class="fas fa-home"></i></a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
                     data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -31,31 +33,72 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto" style="display: flex; justify-content: center; align-items: center">
                     <li class="nav-item">
-                        <a class="nav-link" href="../about.html">à propos</a>
+                        <a class="nav-link" href="/cv">cv</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">cv</a>
+                        <a class="nav-link" href="/contact">contact</a>
                     </li>
+
+                    {% if appUser.admin == 1 %}
                     <li class="nav-item">
-                        <a class="nav-link" href="../contact.html">contact</a>
+                        <a class="nav-link" href="/admin">admin</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../public/index.php?action=showAdmin">
-                            <i class="fas fa-user fa-2x"></i>
-                        </a>
+                    {% endif %}
+                    <li class="nav-item dropdown">
+                            <a id="dropdownMenu" class="btn text-white dropdown-toggle" type="button" data-toggle="dropdown">
+                                <i class="fas fa-user"></i>
+                            </a>
+                        {% if appUser %}
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenu" style="left: -110px;">
+                            <form class="px-4 py-3 text-center">
+                                <div class="form-group">
+                                    <img class="avatar-img" src="{{ appUser.thumbnail }}" alt="User Avatar">
+                                </div>
+                                <div class="form-group">
+                                    <p>
+                                        {{ appUser.firstName }} {{ appUser.lastName }}
+                                    </p>
+                                </div>
+                                <div class="form-group">
+                                    <p>
+                                        {{ appUser.email }}
+                                    </p>
+                                </div>
+                                <a href="/logout" class="btn btn-danger">Logout</a>
+                            </form>
+
+                        </div>
+                        {% else %}
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenu" style="left: -180px;">
+                            <form class="px-4 py-3 text-center" method="post" action="/login">
+                                <div class="form-group">
+                                    <label>
+                                        <input type="email" name="user-email" class="form-control" placeholder="email@example.com">
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label>
+                                        <input type="password" name="user-password" class="form-control" placeholder="Password">
+                                    </label>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Connexion</button>
+                            </form>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/register">Pas de compte ? Créez en un !</a>
+                        </div>
+                        {% endif %}
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <header class="masthead" style="background-image: url({% block headerURL %} '../public/img/header-home.jpg' {% endblock %})">
-        <!-- Mettre l'image en variable twig et stocker sa reference en base, réhydrater et tout -->
+    <header class="masthead" style="background-image: url({% block headerURL %}{% endblock %})">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-md-10 mx-auto">
                         <div class="site-heading">
-                            <h1>{% block headerTitle %}{% endblock %}</h1>
+                            <h1 class="text-uppercase">{% block headerTitle %}{% endblock %}</h1>
                             <span class="subheading">{% block headerSubtitle %}{% endblock %}</span>
                         </div>
                     </div>
@@ -64,9 +107,9 @@
         {% block backHome %}
             <div class="row">
                 <div class="col-12 mx-auto d-flex justify-content-end">
-                    <a class="back-link" href="../public/index.php">
+                    <a class="back-link" href="/">
                         <div class="back-home-container">
-                            <span class="back-home-text">Retour à l'accueil</span>
+                            <span class="back-home-text btn">Retour à l'accueil</span>
                         </div>
                     </a>
                 </div>
@@ -94,7 +137,7 @@
                                 </a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="mailto:contact@thomas.lefebvre.fr" target="_blank">
+                                <a href="/contact">
                                     <span class="fa-stack fa-lg">
                                       <i class="fas fa-circle fa-stack-2x"></i>
                                       <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
@@ -110,7 +153,7 @@
                                 </a>
                             </li>
                         </ul>
-                        <p class="copyright text-muted">&copy; Copyright 2020 par <a href="http://www.thomas-lefebvre.fr">Thomas LEFEBVRE</a></p>
+                        <p class="copyright text-muted">&copy; Copyright 2021 par <a href="http://www.thomas-lefebvre.fr">Thomas LEFEBVRE</a></p>
                     </div>
                 </div>
             </div>
@@ -131,6 +174,7 @@
             integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
             crossorigin="anonymous"></script>
     <!-- Boilerplate javascript -->
-    <script src="public/js/clean-blog.min.js"></script>
+    <script src="/assets/js/clean-blog.min.js"></script>
+    <script src="/assets/js/custom.js"></script>
     </body>
 </html>

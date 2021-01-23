@@ -7,15 +7,15 @@ use DateTime;
 class Comment
 {
     private ?int $id = null;
-    private ?int $post_id = null;
-    private ?int $author_comment = null;
-    private ?DateTime $created_at = null;
+    private ?int $postId = null;
+    private ?string $authorComment = null;
+    private ?DateTime $createdAt;
     private ?string $content = null;
     private ?int $status = 0;
 
     public function __construct()
     {
-        $this->created_at = new DateTime();
+        $this->createdAt = new DateTime();
     }
 
     public function getId(): ?int
@@ -25,17 +25,17 @@ class Comment
 
     public function getPostId(): ?int
     {
-        return $this->post_id;
+        return $this->postId;
     }
 
-    public function getAuthorComment(): ?int
+    public function getAuthorComment(): ?string
     {
-        return $this->author_comment;
+        return $this->authorComment;
     }
 
     public function getCreatedAt(): DateTime
     {
-        return $this->created_at;
+        return $this->createdAt;
     }
 
     public function getContent(): ?string
@@ -53,19 +53,19 @@ class Comment
         $this->id = $id;
     }
 
-    public function setPostId(int $post_id)
+    public function setPostId(int $postId)
     {
-        $this->post_id = $post_id;
+        $this->postId = $postId;
     }
 
-    public function setAuthorComment(int $author_comment)
+    public function setAuthorComment(string $authorComment)
     {
-        $this->author_comment = $author_comment;
+        $this->authorComment = $authorComment;
     }
 
-    public function setCreatedAt(DateTime $created_at)
+    public function setCreatedAt(DateTime $createdAt)
     {
-        $this->created_at = $created_at;
+        $this->createdAt = $createdAt;
     }
 
     public function setContent(string $content)

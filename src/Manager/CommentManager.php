@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Manager;
+
 use App\Entity\Comment;
 use App\Entity\Post;
 use DateTime;
@@ -9,26 +10,49 @@ class CommentManager extends Manager
 {
     public function getAllComments(): array
     {
-
         $request = $this->pdo->prepare('
         SELECT     c.id "comment_id",
                    c.post_id "post_id",
-                   c.author_comment "comment_author",
                    c.created_at "comment_date",
                    c.content "comment_content",
-                   c.status "comment_status"
+                   c.status "comment_status",
+                   u.first_name "author_first_name",
+                   u.last_name "author_last_name"
                    FROM comment c
-                   WHERE c.status = 0   
+                   JOIN user u on c.author_id = u.id
+                   WHERE c.status = 0
         ');
         $request->execute();
         $commentsSQL = $request->fetchAll();
         $comments = [];
-        foreach ($commentsSQL as $commentSQL)
-        {
+        foreach ($commentsSQL as $commentSQL) {
             $comments[] = $this->hydrateComment($commentSQL);
         }
         return $comments;
+    }
 
+    public function getValidatedComments(): array
+    {
+        $request = $this->pdo->prepare('
+        SELECT     c.id "comment_id",
+                   c.created_at "comment_date",
+                   c.post_id "post_id",
+                   c.content "comment_content",
+                   c.status "comment_status",
+                   u.first_name "author_first_name",
+                   u.last_name "author_last_name",
+                   u.thumbnail "thumbnail"
+        FROM comment c
+        JOIN user u on c.author_id = u.id
+        WHERE c.status = 1  
+        ');
+        $request->execute();
+        $commentsSQL = $request->fetchAll();
+        $validatedComments = [];
+        foreach ($commentsSQL as $commentSQL) {
+            $validatedComments[] = $this->hydrateComment($commentSQL);
+        }
+        return $validatedComments;
     }
 
     public function getPostComments(Post $post): array
@@ -36,11 +60,14 @@ class CommentManager extends Manager
         $request = $this->pdo->prepare('
         SELECT     c.id "comment_id",
                    c.post_id "post_id",
-                   c.author_comment "comment_author",
+                   c.author_id "comment_author",
                    c.created_at "comment_date",
                    c.content "comment_content",
-                   c.status "comment_status"
+                   c.status "comment_status",
+                   u.first_name "author_first_name",
+                   u.last_name "author_last_name"
                    FROM comment c
+                   JOIN user u on c.author_id = u.id
                    WHERE c.post_id = :id
                    ORDER BY c.created_at DESC
         ');
@@ -48,8 +75,7 @@ class CommentManager extends Manager
         $request->execute(['id' => $post->getId()]);
         $commentsSQL = $request->fetchAll();
         $comments = [];
-        foreach ($commentsSQL as $commentSQL)
-        {
+        foreach ($commentsSQL as $commentSQL) {
             $comments[] = $this->hydrateComment($commentSQL);
         }
         return $comments;
@@ -59,7 +85,7 @@ class CommentManager extends Manager
     {
         $sendCommentRequest = $this->pdo->prepare('
                 INSERT INTO comment 
-                       (author_comment, created_at,  content, status, post_id) 
+                       (author_id, created_at,  content, status, post_id) 
                 VALUES (:author, :createdAt, :content, :status, :postId)
         ');
         $sendCommentRequest->execute([
@@ -88,7 +114,7 @@ class CommentManager extends Manager
         $comment = new Comment();
         $comment->setId($commentSQL['comment_id']);
         $comment->setPostId($commentSQL['post_id']);
-        $comment->setAuthorComment($commentSQL['comment_author']);
+        $comment->setAuthorComment($commentSQL['author_first_name'] . ' ' . $commentSQL['author_last_name']);
         $comment->setCreatedAt((new DateTime($commentSQL['comment_date'])));
         $comment->setContent($commentSQL['comment_content']);
         $comment->setStatus($commentSQL['comment_status']);
